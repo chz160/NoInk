@@ -32,13 +32,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="mongo-stuff.js" />
+    <Compile Include="routes\api.js" />
     <Compile Include="server.js" />
+    <Compile Include="services\somethingService.js" />
     <Content Include="views\index.html" />
     <Content Include="views\employmentApplication.html" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="services\" />
+    <Folder Include="routes\" />
     <Folder Include="views\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />

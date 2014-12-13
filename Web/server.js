@@ -1,38 +1,23 @@
-﻿var http = require("http"),
-    url = require("url"),
-    path = require("path"),
-    fs = require("fs");
+﻿var hapi = require("hapi");
+var port = parseInt(process.env.PORT, 10) || 1337;
+var server = new hapi.Server();
+server.connection({ port: port });
 
-var port = process.env.port || 1337;
+var api = require("./routes/api");
+server.route(api);
 
-var _viewFolder = "views\\";
-http.createServer(function (req, res) {
-    var uri = url.parse(req.url).pathname
-    , filename = path.join(process.cwd(), _viewFolder, uri);
-
-    path.exists(filename, function (exists) {
-        if (!exists) {
-            res.writeHead(404, { "Content-Type": "text/plain" });
-            res.write("404 Not Found\n");
-            res.end();
-            return;
+server.route({
+    method: 'GET',
+    path: '/{path*}',
+    handler: {
+        directory: {
+            path: './views',
+            listing: false,
+            index: true
         }
-        
-        if (fs.statSync(filename).isDirectory()) {
-            filename += 'index.html';
-        } 
-        
-        fs.readFile(filename, "binary", function (err, file) {
-            if (err) {
-                res.writeHead(500, { "Content-Type": "text/plain" });
-                res.write(err + "\n");
-                res.end();
-                return;
-            }
-            
-            res.writeHead(200);
-            res.write(file, "binary");
-            res.end();
-        });
-    });
-}).listen(port);
+    }
+});
+
+server.start(function () {
+    console.log('Server running at:', server.info.uri);
+});
