@@ -3,7 +3,7 @@ var port = parseInt(process.env.PORT, 10) || 1337;
 var server = new hapi.Server();
 server.connection({ port: port });
 
-server.register({ register: require('lout'), options: { endpoint: '/docs'} }, function (err) {
+server.register({ register: require('lout'), options: { endpoint: '/api/docs'} }, function (err) {
     console.log(err);
 });
 
