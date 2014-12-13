@@ -6,5 +6,8 @@
   "author": {
     "name": "porchn",
     "email": ""
+  },
+  "dependencies": {
+    "mongodb": "^1.4.23"
   }
 }
