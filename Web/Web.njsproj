@@ -31,8 +31,10 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="mongo-stuff.js" />
     <Compile Include="server.js" />
     <Content Include="views\index.html" />
+    <Content Include="EmploymentApplication.html" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>
