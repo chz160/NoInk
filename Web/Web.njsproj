@@ -36,7 +36,6 @@
     <Compile Include="server.js" />
     <Compile Include="services\somethingService.js" />
     <Content Include="views\index.html" />
-    <Content Include="views\employmentApplication.html" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>

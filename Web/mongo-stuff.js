@@ -1,21 +1,27 @@
 ﻿var MongoClient = require('mongodb').MongoClient, assert = require('assert');
-var mongoUrl = 'mongodb://noinkuser:password1@ds061248.mongolab.com:61248/multivision';
+var url = 'mongodb://noinkuser:password1@ds061248.mongolab.com:61248/multivision';
+
+var DataService = function () {
+
+};
 
 
-function insertDocument(url) {
-    MongoClient.connect(url, function (err, db) {
-        console.log("Connected to mongo");
-        
-        var formSubmissions = db.collection('formsubmissions');
-        
-        var document = { formName: "Employee Form", firstName: "B.B.", lastName: "King" };
-        
-        formSubmissions.insert(document, { w: 1 }, function (err, records) {
-            console.log("Record added");
-        });
-        
-        db.close();
-    });
-}
+DataService.prototype.insertDocument = function(doc) {
+    MongoClient.connect(url, function(err, db) {
+            if (err) throw err;
 
-insertDocument(mongoUrl);
+            console.log("Connected to mongo...");
+
+            var data = JSON.parse(doc);
+
+            var formSubmissions = db.collection('formsubmissions');
+            formSubmissions.insert(data, { w: 1 }, function(err, result) {
+                console.log(err);
+                if (err) throw err;
+                db.close();
+            });
+        }
+    );
+};
+
+module.exports = DataService;

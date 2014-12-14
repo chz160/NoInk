@@ -6,7 +6,8 @@ var somethingService = new SomethingServiceType();
 
 module.exports = [
     { method: "GET", path: "/api/ping", config: { handler: ping } },
-    { method: "GET", path: "/api/something", config: { handler: somethingHandler, validate: { query: { name: joi.string() } } } }
+    { method: "GET", path: "/api/something", config: { handler: somethingHandler, validate: { query: { name: joi.string() } } } },
+    { method: "POST", path: "/api/saveForm", config: { handler: saveHandler, validate: { query: { name: joi.string() } } } }
 ];
 
 function ping(request, reply) {
@@ -15,4 +16,8 @@ function ping(request, reply) {
 
 function somethingHandler(request, reply) {
     somethingService.doSomething(request, reply);
+}
+
+function saveHandler(request, reply) {
+    somethingService.saveForm(request, reply);
 }
