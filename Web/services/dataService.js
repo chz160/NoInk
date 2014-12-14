@@ -33,6 +33,18 @@ DataService.prototype.getCollectionItems = function(collectionName, fn) {
     );
 };
 
+DataService.prototype.getCollectionItem = function(collectionName, id, fn) {
+    MongoClient.connect(url, function(err, db) {
+            if (err) throw err;
+            console.log("Connected to mongo...");
+            var collection = db.collection(collectionName);
+            collection.findOne({ _id: new ObjectId(id) }, function(err, doc) {
+                fn(doc);
+            });
+        }
+    );
+};
+
 DataService.prototype.insertFormSubmission = function (doc) {
     this.insertDocument("formsubmissions", doc);
 };
@@ -47,19 +59,6 @@ DataService.prototype.getSubmissions = function (fn) {
     this.getCollectionItems("formsubmissions", function (docs) {
         fn(docs);
     });
-};
-
-
-DataService.prototype.getCollectionItem = function(collectionName, id, fn) {
-    MongoClient.connect(url, function(err, db) {
-            if (err) throw err;
-            console.log("Connected to mongo...");
-            var collection = db.collection(collectionName);
-            collection.findOne({ _id: new ObjectId(id) }, function(err, doc) {
-                fn(doc);
-            });
-        }
-    );
 };
 
 module.exports = DataService;

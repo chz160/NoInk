@@ -36,11 +36,13 @@
     <Compile Include="plugins\auth\handlers.js" />
     <Compile Include="plugins\auth\routes.js" />
     <Compile Include="services\authenticationService.js" />
+    <Compile Include="services\mailService.js" />
     <Compile Include="views\app.js" />
     <Compile Include="services\dataService.js" />
     <Compile Include="routes\api.js" />
     <Compile Include="server.js" />
     <Compile Include="services\somethingService.js" />
+    <Content Include="Procfile" />
     <Content Include="plugins\auth\package.json" />
     <Content Include="views\emergencyContact.html" />
     <Content Include="views\index.html" />
@@ -48,6 +50,7 @@
     <Content Include="README.md" />
     <Content Include="views\login.html" />
     <Content Include="views\register.html" />
+    <Content Include="views\requestSubmission.html" />
     <Content Include="views\submissions.html" />
   </ItemGroup>
   <ItemGroup>

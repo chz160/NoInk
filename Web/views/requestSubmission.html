@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="NoInkApp" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="/scripts/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/scripts/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="/scripts/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/scripts/angular/angular.min.js" type="text/javascript"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-placeholder/2.0.8/jquery.placeholder.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
+<body ng-controller="RequestSubmissionCtrl">
+    <div class="container">
+        First Name: <input type="text" ng-model="firstName" />
+        Last Name: <input type="text" ng-model="lastName" />
+        Email: <input type="text" ng-model="email" />
+        <button class="btn btn-primary" ng-click="requestSubmission()">Request Submission</button>
+    </div>
+</body>
+</html>

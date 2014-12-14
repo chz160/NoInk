@@ -1,5 +1,20 @@
 ﻿var noInkApp = angular.module('NoInkApp', []);
 
+
+noInkApp.controller('RequestSubmissionCtrl', function($scope, $http) {
+    $scope.requestSubmission = function() {
+        var email = $scope.email;
+        $http({
+            method: "POST",
+            url: "/api/sendMail",
+            data: $scope
+        });
+    };
+});
+
+
+
+
 noInkApp.controller('DataCtrl', function ($scope, $http, $filter) {
     function ec() {
         this.firstName;
@@ -75,8 +90,17 @@ noInkApp.controller('DataCtrl', function ($scope, $http, $filter) {
 
     $scope.emergencyContactTemplate = { name: 'emergencyContact.html', url: 'emergencyContact.html' };
 
-    $scope.save = function() {
-        $scope.person.emergencyContacts = $filter('filter')($scope.person.emergencyContacts, { firstName: '!' });
+    $scope.save = function () {
+        var validEmergencyContacts = [];
+        angular.forEach($scope.person.emergencyContacts, function(emergencyContact) {
+            console.log(emergencyContact.firstName);
+            if (emergencyContact.firstName != null) {
+                validEmergencyContacts.push(emergencyContact);
+            }
+        });
+
+        $scope.person.emergencyContacts = validEmergencyContacts;
+
         $http({
             method: "POST",
             url: "/api/saveForm",
