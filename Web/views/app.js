@@ -1,9 +1,24 @@
 ﻿var noInkApp = angular.module('NoInkApp', []);
 
-noInkApp.controller('DataCtrl', function ($scope, $http) {
-    $scope.person = {};
+noInkApp.controller('DataCtrl', function ($scope, $http, $filter) {
+    function ec() {
+        this.firstName;
+        this.lastName;
+        this.homePhone;
+        this.cellPhone;
+        this.businessPhone;
+        this.businessPhoneExt;
+        this.email;
+    }
+
+    var x = new ec();
+    
+    $scope.person = { emergencyContacts: [x] };
+    
     $scope.sexes = ["Male", "Female"];
-    $scope.states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "DC", "WV", "WI", "WY"];
+    
+    //$scope.states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "DC", "WV", "WI", "WY"];
+    
     $scope.stateList = [
         { name: "Alabama", abbr: "AL" },
         { name: "Alaska", abbr: "AK" },
@@ -60,21 +75,8 @@ noInkApp.controller('DataCtrl', function ($scope, $http) {
 
     $scope.emergencyContactTemplate = { name: 'emergencyContact.html', url: 'emergencyContact.html' };
 
-    var ec = {
-        firstName: "",
-        lastName: "",
-        homePhone: "",
-        cellPhone: "",
-        businessPhone: "",
-        businessPhoneExt: "",
-        email: ""
-    };
-    
-    $scope.emergencyContacts = [
-        ec
-    ];
-
     $scope.save = function () {
+        $scope.person.emergencyContacts = $filter('filter')($scope.person.emergencyContacts, { name: '' });      
         $http({
             method: "POST",
             url: "/api/saveForm",
@@ -83,7 +85,7 @@ noInkApp.controller('DataCtrl', function ($scope, $http) {
     };
 
     $scope.addEmergencyContact = function() {
-        $scope.emergencyContacts.push($scope.ec);
+        $scope.person.emergencyContacts.push(new ec);
     }
 });
 
