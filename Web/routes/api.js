@@ -8,7 +8,8 @@ module.exports = [
     { method: "GET", path: "/api/ping", config: { handler: ping } },
     { method: "GET", path: "/api/something", config: { handler: somethingHandler, validate: { query: { name: joi.string() } } } },
     { method: "POST", path: "/api/saveForm", config: { handler: saveHandler, validate: { query: { name: joi.string() } } } },
-    { method: "GET", path: "/api/getSubmissions", config: { handler: getSubmissions, validate: { query: { name: joi.string() } } } }
+    { method: "GET", path: "/api/getSubmissions", config: { handler: getSubmissions, validate: { query: { name: joi.string() } } } },
+    { method: "GET", path: "/api/getSubmissionDetail", config: { handler: somethingService.getSubmissionDetail } }
 ];
 
 function ping(request, reply) {

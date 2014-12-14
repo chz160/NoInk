@@ -19,8 +19,16 @@ SomethingService.prototype.saveForm = function (request, reply) {
     return true;
 }
 
-SomethingService.prototype.getSubmissions = function(request, reply) {
-    dataService.getSubmissions(request, reply);
+SomethingService.prototype.getSubmissions = function(fn) {
+    dataService.getSubmissions(fn);
+    return true;
+}
+
+
+SomethingService.prototype.getSubmissionDetail = function (request, reply) {
+    dataService.getSubmissionDetail(request.query.id, function(doc) {
+        reply(doc);
+    });
     return true;
 }
 
