@@ -31,6 +31,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="services\authenticationService.js" />
     <Compile Include="views\app.js" />
     <Compile Include="mongo-stuff.js" />
     <Compile Include="routes\api.js" />
@@ -40,6 +41,8 @@
     <Content Include="views\index.html" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="views\login.html" />
+    <Content Include="views\register.html" />
     <Content Include="views\submissions.html" />
   </ItemGroup>
   <ItemGroup>
