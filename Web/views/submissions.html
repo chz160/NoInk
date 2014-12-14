@@ -123,16 +123,16 @@
             <div class="row">
                 <div class="form-horizontal">
                     <div class="col-sm-3">
-                        <input id="firstName" type="text" class="form-control" ng-model="getSubmissionDetail.firstName" placeholder="First Name" />
+                        <input id="firstName" type="text" class="form-control" ng-model="submission.firstName" placeholder="First Name" />
                     </div>
                     <div class="col-sm-3">
-                        <input id="middleName" type="text" class="form-control" ng-model="getSubmissionDetail.middleName" placeholder="Middle Name" />
+                        <input id="middleName" type="text" class="form-control" ng-model="submission.middleName" placeholder="Middle Name" />
                     </div>
                     <div class="col-sm-3">
-                        <input id="lastName" type="text" class="form-control" ng-model="getSubmissionDetail.lastName" placeholder="Last Name" />
+                        <input id="lastName" type="text" class="form-control" ng-model="submission.lastName" placeholder="Last Name" />
                     </div>
                     <div class="col-sm-3">
-                        <input id="suffix" type="text" class="form-control" ng-model="getSubmissionDetail.suffix" placeholder="Suffix" />
+                        <input id="suffix" type="text" class="form-control" ng-model="submission.suffix" placeholder="Suffix" />
                     </div>
                 </div>
             </div>
@@ -140,13 +140,13 @@
             <div class="row">
                 <div class="form-horizontal">
                     <div class="col-sm-3">
-                        <input id="dob" type="text" class="form-control" ng-model="getSubmissionDetail.dob" placeholder="Date of Birth" />
+                        <input id="dob" type="text" class="form-control" ng-model="submission.dob" placeholder="Date of Birth" />
                     </div>
                     <div class="col-sm-3">
-                        <input id="ssn" type="text" class="form-control" ng-model="getSubmissionDetail.ssn" placeholder="SSN" />
+                        <input id="ssn" type="text" class="form-control" ng-model="submission.ssn" placeholder="SSN" />
                     </div>
                     <div class="col-sm-3">
-                        <select id="sex" ng-model="getSubmissionDetail.sex" ng-options="sex for sex in sexes" class="form-control">
+                        <select id="sex" ng-model="submission.sex" ng-options="sex for sex in sexes" class="form-control">
                             <option value="">Sex...</option>
                         </select>
                     </div>
@@ -156,7 +156,7 @@
             <div class="row">
                 <div class="form-horizontal">
                     <div class="col-sm-3">
-                        <input id="initials" type="text" class="form-control" ng-model="getSubmissionDetail.initials" placeholder="Initials" />
+                        <input id="initials" type="text" class="form-control" ng-model="submission.initials" placeholder="Initials" />
                     </div>
                 </div>
             </div>
@@ -164,10 +164,10 @@
             <div class="row">
                 <div class="form-horizontal">
                     <div class="col-sm-4">
-                        <input id="driversLicenseNumber" type="text" class="form-control" ng-model="getSubmissionDetail.driversLicenseNumber" placeholder="Drivers License Number" />
+                        <input id="driversLicenseNumber" type="text" class="form-control" ng-model="submission.driversLicenseNumber" placeholder="Drivers License Number" />
                     </div>
                     <div class="col-sm-4">
-                        <input id="driversLicenseState" type="text" class="form-control" ng-model="getSubmissionDetail.driversLicenseState" placeholder="Drivers License State" />
+                        <input id="driversLicenseState" type="text" class="form-control" ng-model="submission.driversLicenseState" placeholder="Drivers License State" />
                     </div>
                 </div>
             </div>
@@ -178,23 +178,23 @@
 
             <div class="row">
                 <div class="col-sm-4">
-                    <input id="address1" type="text" class="form-control" ng-model="getSubmissionDetail.address1" placeholder="Address 1" />
-                    <input id="address2" type="text" class="form-control" ng-model="getSubmissionDetail.address2" placeholder="Address 2" />
+                    <input id="address1" type="text" class="form-control" ng-model="submission.address1" placeholder="Address 1" />
+                    <input id="address2" type="text" class="form-control" ng-model="submission.address2" placeholder="Address 2" />
                 </div>
             </div>
 
             <div class="row">
                 <div class="form-horizontal">
                     <div class="col-sm-3">
-                        <input id="city" type="text" class="form-control" ng-model="getSubmissionDetail.city" placeholder="City" />
+                        <input id="city" type="text" class="form-control" ng-model="submission.city" placeholder="City" />
                     </div>
                     <div class="col-sm-2">
-                        <select id="state" ng-model="getSubmissionDetail.state" ng-options="state for state in states" class="form-control">
+                        <select id="state" ng-model="submission.state" ng-options="state for state in states" class="form-control">
                             <option value="">State...</option>
                         </select>
                     </div>
                     <div class="col-sm-3">
-                        <input id="zip" type="text" class="form-control" ng-model="getSubmissionDetail.zip" placeholder="Zip" />
+                        <input id="zip" type="text" class="form-control" ng-model="submission.zip" placeholder="Zip" />
                     </div>
                 </div>
             </div>
@@ -205,16 +205,16 @@
             <div class="row">
                 <div class="form-horizontal">
                     <div class="col-sm-3">
-                        <input id="BusinessPhone" type="text" class="form-control" ng-model="getSubmissionDetail.BusinessPhone" placeholder="Business Phone" />
+                        <input id="BusinessPhone" type="text" class="form-control" ng-model="submission.BusinessPhone" placeholder="Business Phone" />
                     </div>
                     <div class="col-sm-3">
-                        <input id="cellPhone" type="text" class="form-control" ng-model="getSubmissionDetail.cellPhone" placeholder="Cell Phone" />
+                        <input id="cellPhone" type="text" class="form-control" ng-model="submission.cellPhone" placeholder="Cell Phone" />
                     </div>
                     <div class="col-sm-3">
-                        <input id="businessPhone" type="text" class="form-control" ng-model="getSubmissionDetail.businessPhone" placeholder="Business Phone" />
+                        <input id="businessPhone" type="text" class="form-control" ng-model="submission.businessPhone" placeholder="Business Phone" />
                     </div>
                     <div class="col-sm-3">
-                        <input id="businessPhoneExt" type="text" class="form-control" ng-model="getSubmissionDetail.businessPhoneExt" placeholder="Business Ext" />
+                        <input id="businessPhoneExt" type="text" class="form-control" ng-model="submission.businessPhoneExt" placeholder="Business Ext" />
                     </div>
                 </div>
             </div>
@@ -225,13 +225,13 @@
             <div class="row">
                 <div class="form-horizontal">
                     <div class="col-sm-4">
-                        <input id="personalEmail1" type="text" class="form-control" ng-model="getSubmissionDetail.personalEmail1" placeholder="Personal Email 1" />
+                        <input id="personalEmail1" type="text" class="form-control" ng-model="submission.personalEmail1" placeholder="Personal Email 1" />
                     </div>
                     <div class="col-sm-4">
-                        <input id="personalEmail2" type="text" class="form-control" ng-model="getSubmissionDetail.personalEmail2" placeholder="Personal Email 2" />
+                        <input id="personalEmail2" type="text" class="form-control" ng-model="submission.personalEmail2" placeholder="Personal Email 2" />
                     </div>
                     <div class="col-sm-4">
-                        <input id="businessEmail" type="text" class="form-control" ng-model="getSubmissionDetail.businessEmail" placeholder="Business Email" />
+                        <input id="businessEmail" type="text" class="form-control" ng-model="submission.businessEmail" placeholder="Business Email" />
                     </div>
                 </div>
             </div>
@@ -243,10 +243,10 @@
             <div class="row">
                 <div class="form-horizontal">
                     <div class="col-sm-4">
-                        <input id="emergencyContact1FirstName" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact1FirstName" placeholder="First Name" />
+                        <input id="emergencyContact1FirstName" type="text" class="form-control" ng-model="submission.emergencyContact1FirstName" placeholder="First Name" />
                     </div>
                     <div class="col-sm-4">
-                        <input id="emergencyContact1LastName" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact1LastName" placeholder="Last Name" />
+                        <input id="emergencyContact1LastName" type="text" class="form-control" ng-model="submission.emergencyContact1LastName" placeholder="Last Name" />
                     </div>
                 </div>
             </div>
@@ -254,16 +254,16 @@
             <div class="row">
                 <div class="form-horizontal">
                     <div class="col-sm-3">
-                        <input id="emergencyContact1BusinessPhone" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact1BusinessPhone" placeholder="Business Phone" />
+                        <input id="emergencyContact1BusinessPhone" type="text" class="form-control" ng-model="submission.emergencyContact1BusinessPhone" placeholder="Business Phone" />
                     </div>
                     <div class="col-sm-3">
-                        <input id="emergencyContact1CellPhone" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact1CellPhone" placeholder="Cell Phone" />
+                        <input id="emergencyContact1CellPhone" type="text" class="form-control" ng-model="submission.emergencyContact1CellPhone" placeholder="Cell Phone" />
                     </div>
                     <div class="col-sm-3">
-                        <input id="emergencyContact1BusinessPhone" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact1BusinessPhone" placeholder="Business Phone" />
+                        <input id="emergencyContact1BusinessPhone" type="text" class="form-control" ng-model="submission.emergencyContact1BusinessPhone" placeholder="Business Phone" />
                     </div>
                     <div class="col-sm-3">
-                        <input id="emergencyContact1BusinessPhoneExt" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact1BusinessPhoneExt" placeholder="Business Phone Ext" />
+                        <input id="emergencyContact1BusinessPhoneExt" type="text" class="form-control" ng-model="submission.emergencyContact1BusinessPhoneExt" placeholder="Business Phone Ext" />
                     </div>
                 </div>
             </div>
@@ -271,7 +271,7 @@
             <div class="row">
                 <div class="form-horizontal">
                     <div class="col-sm-3">
-                        <input id="emergencyContact1Email" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact1Email" placeholder="Email" />
+                        <input id="emergencyContact1Email" type="text" class="form-control" ng-model="submission.emergencyContact1Email" placeholder="Email" />
                     </div>
                 </div>
             </div>
@@ -284,10 +284,10 @@
             <div class="row">
                 <div class="form-horizontal">
                     <div class="col-sm-4">
-                        <input id="emergencyContact2FirstName" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact2FirstName" placeholder="First Name" />
+                        <input id="emergencyContact2FirstName" type="text" class="form-control" ng-model="submission.emergencyContact2FirstName" placeholder="First Name" />
                     </div>
                     <div class="col-sm-4">
-                        <input id="emergencyContact2LastName" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact2LastName" placeholder="Last Name" />
+                        <input id="emergencyContact2LastName" type="text" class="form-control" ng-model="submission.emergencyContact2LastName" placeholder="Last Name" />
                     </div>
                 </div>
             </div>
@@ -295,16 +295,16 @@
             <div class="row">
                 <div class="form-horizontal">
                     <div class="col-sm-3">
-                        <input id="emergencyContact2BusinessPhone" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact2BusinessPhone" placeholder="Business Phone" />
+                        <input id="emergencyContact2BusinessPhone" type="text" class="form-control" ng-model="submission.emergencyContact2BusinessPhone" placeholder="Business Phone" />
                     </div>
                     <div class="col-sm-3">
-                        <input id="emergencyContact2CellPhone" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact2CellPhone" placeholder="Cell Phone" />
+                        <input id="emergencyContact2CellPhone" type="text" class="form-control" ng-model="submission.emergencyContact2CellPhone" placeholder="Cell Phone" />
                     </div>
                     <div class="col-sm-3">
-                        <input id="emergencyContact2BusinessPhone" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact2BusinessPhone" placeholder="Business Phone" />
+                        <input id="emergencyContact2BusinessPhone" type="text" class="form-control" ng-model="submission.emergencyContact2BusinessPhone" placeholder="Business Phone" />
                     </div>
                     <div class="col-sm-3">
-                        <input id="emergencyContact2BusinessPhoneExt" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact2BusinessPhoneExt" placeholder="Business Phone Ext" />
+                        <input id="emergencyContact2BusinessPhoneExt" type="text" class="form-control" ng-model="submission.emergencyContact2BusinessPhoneExt" placeholder="Business Phone Ext" />
                     </div>
                 </div>
             </div>
@@ -312,7 +312,7 @@
             <div class="row">
                 <div class="form-horizontal">
                     <div class="col-sm-3">
-                        <input id="emergencyContact2Email" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact2Email" placeholder="Email" />
+                        <input id="emergencyContact2Email" type="text" class="form-control" ng-model="submission.emergencyContact2Email" placeholder="Email" />
                     </div>
                 </div>
             </div>
@@ -324,10 +324,10 @@
             <div class="row">
                 <div class="form-horizontal">
                     <div class="col-sm-4">
-                        <input id="emergencyContact3FirstName" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact3FirstName" placeholder="First Name" />
+                        <input id="emergencyContact3FirstName" type="text" class="form-control" ng-model="submission.emergencyContact3FirstName" placeholder="First Name" />
                     </div>
                     <div class="col-sm-4">
-                        <input id="emergencyContact3LastName" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact3LastName" placeholder="Last Name" />
+                        <input id="emergencyContact3LastName" type="text" class="form-control" ng-model="submission.emergencyContact3LastName" placeholder="Last Name" />
                     </div>
                 </div>
             </div>
@@ -335,16 +335,16 @@
             <div class="row">
                 <div class="form-horizontal">
                     <div class="col-sm-3">
-                        <input id="emergencyContact3BusinessPhone" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact3BusinessPhone" placeholder="Business Phone" />
+                        <input id="emergencyContact3BusinessPhone" type="text" class="form-control" ng-model="submission.emergencyContact3BusinessPhone" placeholder="Business Phone" />
                     </div>
                     <div class="col-sm-3">
-                        <input id="emergencyContact3CellPhone" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact3CellPhone" placeholder="Cell Phone" />
+                        <input id="emergencyContact3CellPhone" type="text" class="form-control" ng-model="submission.emergencyContact3CellPhone" placeholder="Cell Phone" />
                     </div>
                     <div class="col-sm-3">
-                        <input id="emergencyContact3BusinessPhone" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact3BusinessPhone" placeholder="Business Phone" />
+                        <input id="emergencyContact3BusinessPhone" type="text" class="form-control" ng-model="submission.emergencyContact3BusinessPhone" placeholder="Business Phone" />
                     </div>
                     <div class="col-sm-3">
-                        <input id="emergencyContact3BusinessPhoneExt" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact3BusinessPhoneExt" placeholder="Business Phone Ext" />
+                        <input id="emergencyContact3BusinessPhoneExt" type="text" class="form-control" ng-model="submission.emergencyContact3BusinessPhoneExt" placeholder="Business Phone Ext" />
                     </div>
                 </div>
             </div>
@@ -352,7 +352,7 @@
             <div class="row">
                 <div class="form-horizontal">
                     <div class="col-sm-3">
-                        <input id="emergencyContact3Email" type="text" class="form-control" ng-model="getSubmissionDetail.emergencyContact3Email" placeholder="Email" />
+                        <input id="emergencyContact3Email" type="text" class="form-control" ng-model="submission.emergencyContact3Email" placeholder="Email" />
                     </div>
                 </div>
             </div>
@@ -362,7 +362,7 @@
             <div class="row">
                 <div class="form-horizontal">
                     <div class="col-sm-6">
-                        <input id="allergies" type="text" class="form-control" ng-model="getSubmissionDetail.allergies" placeholder="Allergies or other Medical Concerns" />
+                        <input id="allergies" type="text" class="form-control" ng-model="submission.allergies" placeholder="Allergies or other Medical Concerns" />
                     </div>
                 </div>
             </div>

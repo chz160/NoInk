@@ -36,7 +36,7 @@ noInkApp.controller('SubmissionCtrl', function ($scope, $http) {
             url: "/api/getSubmissionDetail",
             params: { id: row._id }
         }).success(function(data, status, headers, config) {
-            $scope.getSubmissionDetail = data;
+            $scope.submission = data;
             $scope.detailView = true;
         }).error(function(data, status, headers, config) {
             console.log(data);
@@ -44,11 +44,6 @@ noInkApp.controller('SubmissionCtrl', function ($scope, $http) {
             console.log(headers);
             console.log(config);
         });
-
-        $scope.submission = {
-            firstName: "Michael",
-            lastName: "Smitherman"
-        };
     }
 });
 
