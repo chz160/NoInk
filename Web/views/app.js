@@ -13,7 +13,6 @@ noInkApp.controller('DataCtrl', function ($scope, $http) {
     };
 });
 
-
 noInkApp.controller('SubmissionCtrl', function($scope, $http) {
     $scope.getSubmissions = function() {
         $http({
@@ -37,4 +36,8 @@ noInkApp.controller('SubmissionCtrl', function($scope, $http) {
             lastName: "Smitherman"
         };
     }
+});
+
+$(function () {
+    $('input, textarea').placeholder();
 });
