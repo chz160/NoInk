@@ -1,6 +1,6 @@
 ﻿var hapi = require("hapi");
 
-var port = parseInt(process.env.PORT, 10) || 1337;
+var port = parseInt(process.env.PORT, 10) || 80;
 var server = new hapi.Server();
 server.connection({ port: port });
 
@@ -43,9 +43,9 @@ server.route({
 
 server.register([
     { register: require('lout'), options: { endpoint: '/api/docs' } }, 
-    require('bell'),
-    require('hapi-auth-cookie'),
-    require('./plugins/auth')], function (err) {
+    { register: require('bell') },
+    { register: require('hapi-auth-cookie') },
+    { register: require('./plugins/auth') }], function (err) {
     if (err) throw err;
     // Declare an authentication strategy using the bell scheme
     // with the name of the provider, cookie encryption password,
