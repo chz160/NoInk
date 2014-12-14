@@ -19,4 +19,9 @@ SomethingService.prototype.saveForm = function (request, reply) {
     return true;
 }
 
+SomethingService.prototype.getSubmissions = function(request, reply) {
+    dataService.getSubmissions(request, reply);
+    return true;
+}
+
 module.exports = SomethingService;

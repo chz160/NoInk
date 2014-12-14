@@ -24,4 +24,17 @@ DataService.prototype.insertDocument = function(doc) {
     );
 };
 
+
+DataService.prototype.getSubmissions = function(fn) {
+    MongoClient.connect(url, function(err, db) {
+            if (err) throw err;
+            console.log("Connected to mongo...");
+            var formSubmissions = db.collection('formsubmissions');
+            formSubmissions.find().toArray(function(err, docs) {
+                fn(docs);
+            });
+        }
+    );
+};
+
 module.exports = DataService;
