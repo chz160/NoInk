@@ -12,6 +12,23 @@ server.route(api);
 
 server.route({
     method: 'GET',
+    path: '/scripts/{path*}',
+    config: {
+        handler: {
+            directory: {
+                path: './node_modules',
+                listing: false,
+                index: false
+            }
+        },
+        plugins: {
+            lout: false
+        }
+    }
+});
+
+server.route({
+    method: 'GET',
     path: '/{path*}',
     config: {
         handler: {
