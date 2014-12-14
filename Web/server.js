@@ -1,4 +1,6 @@
-﻿var hapi = require("hapi");
+﻿var hapi = require("hapi"), 
+    passport = require('passport');
+
 var port = parseInt(process.env.PORT, 10) || 1337;
 var server = new hapi.Server();
 server.connection({ port: port });
@@ -43,6 +45,21 @@ server.route({
         }
     }
 });
+
+//passport.use(new LocalStrategy(
+//    function (username, password, done) {
+//        User.findOne({ username: username }, function (err, user) {
+//            if (err) { return done(err); }
+//            if (!user) {
+//                return done(null, false, { message: 'Incorrect username.' });
+//            }
+//            if (!user.validPassword(password)) {
+//                return done(null, false, { message: 'Incorrect password.' });
+//            }
+//            return done(null, user);
+//        });
+//    }
+//));
 
 server.start(function () {
     console.log('Server running at:', server.info.uri);
