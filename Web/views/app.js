@@ -76,7 +76,7 @@ noInkApp.controller('DataCtrl', function ($scope, $http, $filter) {
     $scope.emergencyContactTemplate = { name: 'emergencyContact.html', url: 'emergencyContact.html' };
 
     $scope.save = function() {
-        $scope.person.emergencyContacts = $filter('filter')($scope.person.emergencyContacts, { firstName: null });
+        $scope.person.emergencyContacts = $filter('filter')($scope.person.emergencyContacts, { firstName: '!' });
         $http({
             method: "POST",
             url: "/api/saveForm",

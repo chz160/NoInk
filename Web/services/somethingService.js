@@ -2,7 +2,7 @@
 var dataService = new DataServiceType();
 
 exports.saveForm = function (request, reply) {
-    dataService.insertDocument(request.payload);
+    dataService.insertFormSubmission(request.payload);
     return true;
 }
 

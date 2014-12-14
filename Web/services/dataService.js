@@ -7,25 +7,12 @@ var DataService = function () {
 
 };
 
-function getCollection() {
-    MongoClient.connect(url, function(err, db) {
-        if (err) throw err;
-        console.log("Connected to mongo...");
-        var formSubmissions = db.collection('formsubmissions');
-        return formSubmissions;
-    });
-};
-
-DataService.prototype.insertDocument = function(doc) {
+DataService.prototype.insertDocument = function(collectionName, doc) {
     MongoClient.connect(url, function(err, db) {
             if (err) throw err;
-
             console.log("Connected to mongo...");
-
-            //var data = JSON.parse(doc);
-
-            var formSubmissions = db.collection('formsubmissions');
-            formSubmissions.insert(doc, { w: 1 }, function(err, result) {
+            var collection = db.collection(collectionName);
+            collection.insert(doc, { w: 1 }, function(err, result) {
                 console.log(err);
                 if (err) throw err;
                 db.close();
@@ -34,27 +21,44 @@ DataService.prototype.insertDocument = function(doc) {
     );
 };
 
-DataService.prototype.getSubmissions = function(fn) {
+DataService.prototype.getCollectionItems = function(collectionName, fn) {
     MongoClient.connect(url, function(err, db) {
             if (err) throw err;
             console.log("Connected to mongo...");
-            var formSubmissions = db.collection('formsubmissions');
-            formSubmissions.find().toArray(function(err, docs) {
+            var collection = db.collection(collectionName);
+            collection.find().toArray(function(err, docs) {
                 fn(docs);
             });
         }
     );
 };
 
+DataService.prototype.insertFormSubmission = function (doc) {
+    this.insertDocument("formsubmissions", doc);
+};
+
 DataService.prototype.getSubmissionDetail = function (id, fn) {
-    MongoClient.connect(url, function (err, db) {
-        if (err) throw err;
-        console.log("Connected to mongo...");
-        var formSubmissions = db.collection('formsubmissions');
-        formSubmissions.findOne({_id: new ObjectId(id) }, function (err, doc) {
-            fn(doc);
-        });
-    }
+    this.getCollectionItem("formsubmissions", id, function (doc) {
+        fn(doc);
+    });
+};
+
+DataService.prototype.getSubmissions = function (fn) {
+    this.getCollectionItems("formsubmissions", function (docs) {
+        fn(docs);
+    });
+};
+
+
+DataService.prototype.getCollectionItem = function(collectionName, id, fn) {
+    MongoClient.connect(url, function(err, db) {
+            if (err) throw err;
+            console.log("Connected to mongo...");
+            var collection = db.collection(collectionName);
+            collection.findOne({ _id: new ObjectId(id) }, function(err, doc) {
+                fn(doc);
+            });
+        }
     );
 };
 
