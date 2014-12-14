@@ -19,48 +19,9 @@
         <thead>
             <tr>
                 <th></th>
-                <th>Firstname </th>
-                <th>Middlename </th>
-                <th>Lastname </th>
-                <th>Suffix </th>
-                <th>Dob </th>
-                <th>Ssn </th>
-                <th>Sex</th>
-                <th>Initials </th>
-                <th>Driverslicensenumber </th>
-                <th>Driverslicensestate </th>
-                <th>Address1 </th>
-                <th>Address2 </th>
-                <th>City </th>
-                <th>Zip </th>
-                <th>Home Phone</th>
-                <th>Cell Phone</th>
-                <th>Business Phone</th>
-                <th>Business Phone Ext</th>
-                <th>Personalemail1 </th>
-                <th>Personalemail2 </th>
-                <th>Businessemail </th>
-                <th>Emergencycontact2Firstname </th>
-                <th>Emergencycontact2Lastname </th>
-                <th>Allergies </th>
-                <th>Emergencycontact1Businessphone</th>
-                <th>Emergencycontact1Businessphoneext </th>
-                <th>Emergencycontact1Cellphone </th>
-                <th>Emergencycontact1Email </th>
-                <th>Emergencycontact1Firstname </th>
-                <th>Emergencycontact1Lastname </th>
-                <th>Emergencycontact2Businessphone</th>
-                <th>Emergencycontact2Businessphone</th>
-                <th>Emergencycontact2Businessphoneext </th>
-                <th>Emergencycontact2Cellphone </th>
-                <th>Emergencycontact2Email </th>
-                <th>Emergencycontact3Businessphone</th>
-                <th>Emergencycontact3Businessphone</th>
-                <th>Emergencycontact3Businessphoneext </th>
-                <th>Emergencycontact3Cellphone </th>
-                <th>Emergencycontact3Email </th>
-                <th>Emergencycontact3Firstname </th>
-                <th>Emergencycontact3Lastname </th>
+                <th>Name </th>
+                <th>Phone</th>
+                <th>Email </th>
             </tr>
         </thead>
         <tbody>
@@ -70,48 +31,17 @@
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                     </button>
                 </td>
-                <td>{{s.firstName }}</td>
-                <td>{{s.middleName }}</td>
-                <td>{{s.lastName }}</td>
-                <td>{{s.suffix }}</td>
-                <td>{{s.dob }}</td>
-                <td>{{s.ssn }}</td>
-                <td>{{s.sex}}</td>
-                <td>{{s.initials }}</td>
-                <td>{{s.driversLicenseNumber }}</td>
-                <td>{{s.driversLicenseState }}</td>
-                <td>{{s.address1 }}</td>
-                <td>{{s.address2 }}</td>
-                <td>{{s.city }}</td>
-                <td>{{s.zip }}</td>
-                <td>{{s.HomePhone}}</td>
-                <td>{{s.CellPhone}}</td>
-                <td>{{s.BusinessPhone}}</td>
-                <td>{{s.BusinessPhoneExt}}</td>
-                <td>{{s.personalEmail1 }}</td>
-                <td>{{s.personalEmail2 }}</td>
-                <td>{{s.businessEmail }}</td>
-                <td>{{s.emergencyContact2FirstName }}</td>
-                <td>{{s.emergencyContact2LastName }}</td>
-                <td>{{s.allergies }}</td>
-                <td>{{s.emergencyContact1BusinessPhone}}</td>
-                <td>{{s.emergencyContact1BusinessPhoneExt }}</td>
-                <td>{{s.emergencyContact1CellPhone }}</td>
-                <td>{{s.emergencyContact1Email }}</td>
-                <td>{{s.emergencyContact1FirstName }}</td>
-                <td>{{s.emergencyContact1LastName }}</td>
-                <td>{{s.emergencyContact2BusinessPhone}}</td>
-                <td>{{s.emergencyContact2BusinessPhone}}</td>
-                <td>{{s.emergencyContact2BusinessPhoneExt }}</td>
-                <td>{{s.emergencyContact2CellPhone }}</td>
-                <td>{{s.emergencyContact2Email }}</td>
-                <td>{{s.emergencyContact3BusinessPhone}}</td>
-                <td>{{s.emergencyContact3BusinessPhone}}</td>
-                <td>{{s.emergencyContact3BusinessPhoneExt }}</td>
-                <td>{{s.emergencyContact3CellPhone }}</td>
-                <td>{{s.emergencyContact3Email }}</td>
-                <td>{{s.emergencyContact3FirstName }}</td>
-                <td>{{s.emergencyContact3LastName }}</td>
+                <td>{{s.firstName }} {{s.middleName }} {{s.lastName }} {{s.suffix }}</td>
+                <td>
+                    <div>h: {{s.HomePhone}}</div>
+                    <div>c: {{s.CellPhone}}</div>
+                    <div>b: {{s.BusinessPhone}} {{s.BusinessPhoneExt}}</div>
+                </td>
+                <td>
+                    <div>{{s.personalEmail1 }}</div>
+                    <div>{{s.personalEmail2 }}</div>
+                    <div>{{s.businessEmail }}</div>
+                </td>
             </tr>
         </tbody>
     </table>
