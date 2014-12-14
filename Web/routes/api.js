@@ -3,10 +3,9 @@ var appDir = path.dirname(require.main.filename);
 
 var hapi = require("hapi");
 var joi = require("joi");
-var authentication = require(appDir + '/services/authenticationService');
 
-var SomethingServiceType = require(appDir + '/services/somethingService.js');
-var somethingService = new SomethingServiceType();
+var authentication = require(appDir + '/services/authenticationService');
+var somethingService = require(appDir + '/services/somethingService.js');
 
 module.exports = [
     { method: 'POST', path: '/api/login', config: { handler: authentication.login } },
