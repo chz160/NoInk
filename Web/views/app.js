@@ -30,4 +30,11 @@ noInkApp.controller('SubmissionCtrl', function($scope, $http) {
             console.log(config);
         });
     };
+
+    $scope.showDetail = function(row) {
+        $scope.submission = {
+            firstName: "Michael",
+            lastName: "Smitherman"
+        };
+    }
 });
