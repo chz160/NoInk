@@ -76,12 +76,14 @@ noInkApp.controller('DataCtrl', function ($scope, $http, $filter) {
     $scope.emergencyContactTemplate = { name: 'emergencyContact.html', url: 'emergencyContact.html' };
 
     $scope.save = function () {
-        $scope.person.emergencyContacts = $filter('filter')($scope.person.emergencyContacts, { name: '' });      
-        $http({
-            method: "POST",
-            url: "/api/saveForm",
-            data: $scope.person
-        });
+        $scope.person.emergencyContacts  = $filter('filter')($scope.person.emergencyContacts, {firstName:null});
+        if ($scope.person.isValid) {
+            $http({
+                method: "POST",
+                url: "/api/saveForm",
+                data: $scope.person
+            });
+        }
     };
 
     $scope.addEmergencyContact = function() {
