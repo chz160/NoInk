@@ -1,4 +1,4 @@
-﻿var DataServiceType = require('../mongo-stuff.js');
+﻿var DataServiceType = require('./dataService.js');
 var dataService = new DataServiceType();
 
 exports.register = function (request, reply) {

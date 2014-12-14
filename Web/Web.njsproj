@@ -33,7 +33,7 @@
   <ItemGroup>
     <Compile Include="services\authenticationService.js" />
     <Compile Include="views\app.js" />
-    <Compile Include="mongo-stuff.js" />
+    <Compile Include="services\dataService.js" />
     <Compile Include="routes\api.js" />
     <Compile Include="server.js" />
     <Compile Include="services\somethingService.js" />

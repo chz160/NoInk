@@ -1,9 +1,8 @@
-﻿var DataServiceType = require('../mongo-stuff.js');
+﻿var DataServiceType = require('./dataService.js');
 var dataService = new DataServiceType();
 
 exports.saveForm = function (request, reply) {
-    var data = JSON.stringify(request.payload);
-    dataService.insertDocument(data);
+    dataService.insertDocument(request.payload);
     return true;
 }
 
