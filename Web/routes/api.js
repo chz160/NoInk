@@ -16,5 +16,6 @@ module.exports = [
     { method: "POST", path: "/api/saveForm", config: { handler: somethingService.saveForm, validate: { query: { name: joi.string() } } } },
     { method: "GET", path: "/api/getSubmissions", config: { handler: somethingService.getSubmissions, validate: { query: { name: joi.string() } } } },
     { method: "GET", path: "/api/getSubmissionDetail", config: { handler: somethingService.getSubmissionDetail } },
-    { method: "POST", path: "/api/sendMail", config: { handler: mailService.sendMail, validate: { query: { name: joi.string() } } } }
+    { method: "POST", path: "/api/sendMail", config: { handler: mailService.sendMail, validate: { query: { name: joi.string() } } } },
+    { method: "GET", path: "/api/getStates", config: { handler: somethingService.getStates } }
 ];
