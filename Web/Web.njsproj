@@ -37,7 +37,7 @@
     <Compile Include="plugins\auth\routes.js" />
     <Compile Include="services\authenticationService.js" />
     <Compile Include="services\mailService.js" />
-    <Compile Include="views\app.js" />
+    <Compile Include="public\js\app.js" />
     <Compile Include="services\dataService.js" />
     <Compile Include="routes\api.js" />
     <Compile Include="server.js" />
@@ -48,14 +48,19 @@
     <Content Include="views\index.html" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="views\layout.html" />
     <Content Include="views\login.html" />
     <Content Include="views\register.html" />
     <Content Include="views\requestSubmission.html" />
     <Content Include="views\submissions.html" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="public\" />
     <Folder Include="plugins\" />
     <Folder Include="plugins\auth\" />
+    <Folder Include="public\css\" />
+    <Folder Include="public\js\" />
+    <Folder Include="public\images\" />
     <Folder Include="services\" />
     <Folder Include="routes\" />
     <Folder Include="views\" />
