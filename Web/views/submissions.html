@@ -18,7 +18,9 @@
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                     </button>
                 </td>
-                <td>{{s.firstName }} {{s.middleName }} {{s.lastName }} {{s.suffix }}</td>
+                <td><span ng-bind="s.firstName"></span>
+                    {{s.firstName }} {{s.middleName }} {{s.lastName }} {{s.suffix }}
+                </td>
                 <td>
                     <div>h: {{s.homePhone}}</div>
                     <div>c: {{s.cellPhone}}</div>
