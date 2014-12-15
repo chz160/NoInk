@@ -1,6 +1,6 @@
 ﻿{% extends './layout.html' %}
 {% block content %}
-<div class="container" ng-controller="SubmissionCtrl">
+<div class="container" ng-controller="SubmissionController">
     <div>
         <button ng-click="getSubmissions()" class="btn btn-primary">Get Submissions</button>
     </div>
@@ -20,21 +20,24 @@
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                     </button>
                 </td>
-                <td>{{s.firstName }} {{s.middleName }} {{s.lastName }} {{s.suffix }}</td>
                 <td>
-                    <div>h: {{s.homePhone}}</div>
-                    <div>c: {{s.cellPhone}}</div>
-                    <div>b: {{s.businessPhone}} {{s.businessPhoneExt}}</div>
+                    <span ng-bind="s.firstName"></span> <span ng-bind="s.middleName"></span> <span ng-bind="s.lastName"></span> <span ng-bind="s.suffix"></span>
+                    {{s.firstName }} {{s.middleName }} {{s.lastName }} {{s.suffix }}
                 </td>
                 <td>
-                    <div>{{s.personalEmail1 }}</div>
-                    <div>{{s.personalEmail2 }}</div>
-                    <div>{{s.businessEmail }}</div>
+                    <div>h: <span ng-bind="s.homePhone | tel"></span>{{s.homePhone}}</div>
+                    <div>c: <span ng-bind="s.cellPhone | tel"></span>{{s.cellPhone}}</div>
+                    <div>b: <span ng-bind="s.businessPhone | tel"></span> <span ng-bind="s.businessPhoneExt"></span>{{s.businessPhone}} {{s.businessPhoneExt}}</div>
+                </td>
+                <td>
+                    <div><span ng-bind="s.personalEmail1"></span>{{s.personalEmail1 }}</div>
+                    <div><span ng-bind="s.personalEmail2"></span>{{s.personalEmail2 }}</div>
+                    <div><span ng-bind="s.businessEmail"></span>{{s.businessEmail }}</div>
                 </td>
             </tr>
         </tbody>
     </table>
-    
+
     <div ng-show="detailView == true">
         <fieldset>
             <legend>Personal Information</legend>
@@ -63,6 +66,8 @@
                     </div>
                     <div class="col-sm-3">
                         <input id="ssn" type="text" class="form-control" ng-model="submission.ssn" placeholder="SSN" />
+
+
                     </div>
                     <div class="col-sm-3">
                         <select id="sex" ng-model="submission.sex" ng-options="sex for sex in sexes" class="form-control">

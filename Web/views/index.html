@@ -1,6 +1,6 @@
 ﻿{% extends './layout.html' %}
 {% block content %}
-<div class="container" ng-controller="DataCtrl">
+<div class="container" ng-controller="DataController">
     <form name="submissionForm" ng-submit="save(person)" novalidate>
         <fieldset>
             <legend>Personal Information</legend>
@@ -44,7 +44,6 @@
                     <input id="driversLicenseNumber" name="driversLicenseNumber" type="text" class="form-control" ng-model="person.driversLicenseNumber" placeholder="Drivers License Number" />
                 </div>
                 <div class="col-sm-4">
-                    <!--<input id="driversLicenseState" type="text" class="form-control" ng-model="person.driversLicenseState" placeholder="Drivers License State" />-->
                     <select id="driversLicenseState" name="driversLicenseState" ng-model="person.driversLicenseState" ng-options="state.name for state in stateList" class="form-control">
                         <option value="">Drivers License State...</option>
                     </select>
@@ -120,7 +119,7 @@
         </fieldset>
 
         <fieldset>
-            <legend>Emergency Contacts <button type="button" ng-click="addEmergencyContact()" class="btn btn-success btn-sm" style="margin-bottom: 5px">Add Contact</button></legend>
+            <legend>Emergency Contacts <button type="button" ng-click="addEmergencyContact()" class="btn btn-success btn-sm" style="margin-bottom: 5px">Add</button></legend>
             <table class="table">
                 <tr ng-repeat="emergencyContact in person.emergencyContacts" ng-include="emergencyContactTemplate.url" autoscroll></tr>
             </table>
