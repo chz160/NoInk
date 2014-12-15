@@ -1,4 +1,6 @@
-﻿<div class="container" ng-controller="SubmissionCtrl">
+﻿{% extends './layout.html' %}
+{% block content %}
+<div class="container" ng-controller="SubmissionCtrl">
     <div>
         <button ng-click="getSubmissions()" class="btn btn-primary">Get Submissions</button>
     </div>
@@ -286,3 +288,4 @@
         </fieldset>
     </div>
 </div>
+{% endblock %}

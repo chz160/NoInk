@@ -1,4 +1,6 @@
-﻿<div ng-controller="RequestSubmissionCtrl">
+﻿{% extends './layout.html' %}
+{% block content %}
+<div ng-controller="RequestSubmissionCtrl">
     <div class="container">
         First Name: <input type="text" ng-model="firstName" />
         Last Name: <input type="text" ng-model="lastName" />
@@ -6,3 +8,4 @@
         <button class="btn btn-primary" ng-click="requestSubmission()">Request Submission</button>
     </div>
 </div>
+{% endblock %}
