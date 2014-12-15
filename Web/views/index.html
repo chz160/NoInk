@@ -75,18 +75,7 @@
         </fieldset>
 
         <fieldset>
-            <legend>Phone Numbers <button type="button" ng-click="addPhoneNumber()" class="btn btn-success btn-sm" style="margin-bottom: 5px">Add</button></legend>
-            <table class="table table-condensed">
-                <tr ng-repeat="phone in person.phones">
-                    <td><input type="text" class="form-control"/></td>
-                    <td><select class="form-control" >
-                            <option>Home</option>
-                            <option>Work</option>
-                            <option>Mobile</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
+            <legend>Phone Numbers</legend>
             <div class="row">
                 <div class="col-sm-3">
                     <input id="homePhone" name="homePhone" type="text" class="form-control" ng-model="person.homePhone" placeholder="Home Phone" />

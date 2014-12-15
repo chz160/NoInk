@@ -49,7 +49,6 @@ noInkApp .filter('tel', function () {
 });
 
 
-
 noInkApp.controller('RequestSubmissionController', function ($scope, $http) {
     $scope.requestSubmission = function () {
         var email = $scope.email;
@@ -116,7 +115,6 @@ noInkApp.controller('DataController', function ($scope, $http, $filter) {
     $scope.removeEmergencyContact = function (ec) {
         $scope.person.emergencyContacts.pop(ec);
     }
-    
 
     $scope.getStates();
 });
