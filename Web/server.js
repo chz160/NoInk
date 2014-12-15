@@ -1,44 +1,18 @@
-﻿var hapi = require("hapi");
+﻿var path = require('path');
+var hapi = require("hapi");
 
 var port = parseInt(process.env.PORT, 10) || 80;
 var server = new hapi.Server();
 server.connection({ port: port });
 
-var api = require("./routes/api");
-server.route(api);
-
-server.route({
-    method: 'GET',
-    path: '/scripts/{path*}',
-    config: {
-        handler: {
-            directory: {
-                path: './node_modules',
-                listing: false,
-                index: false
-            }
-        },
-        plugins: {
-            lout: false
-        }
-    }
-});
-
-server.route({
-    method: 'GET',
-    path: '/{path*}',
-    config: {
-        handler: {
-            directory: {
-                path: './views',
-                listing: false,
-                index: true
-            }
-        },
-        plugins: {
-            lout: false
-        }
-    }
+server.views({
+    engines: {
+        html: require('handlebars')
+    },
+    path: path.join(__dirname, 'views'),
+    partialsPath: path.join(__dirname, 'views'),
+    layout: true,
+    isCached: false
 });
 
 server.register([
@@ -63,27 +37,62 @@ server.register([
     // This endpoints usually looks up the third party account in
     // the database and sets some application state (cookie) with
     // the local application account information.
-    server.route({
-        method: ['GET', 'POST'], // Must handle both GET and POST
-        path: '/login',          // The callback endpoint registered with the provider
-        config: {
-            auth: {
-                strategy: 'twitter',
-                mode: 'try'
-            },
-            handler: function (request, reply) {
+    var api = require("./routes/api");
+    server.route(api);
+
+    server.route([
+        {
+            method: ['GET', 'POST'], // Must handle both GET and POST
+            path: '/login',          // The callback endpoint registered with the provider
+            config: {
+                auth: {
+                    strategy: 'twitter',
+                    mode: 'try'
+                },
+                handler: function (request, reply) {
                     
-                // Perform any account lookup or registration, setup local session,
-                // and redirect to the application. The third-party credentials are
-                // stored in request.auth.credentials. Any query parameters from
-                // the initial request are passed back via request.auth.credentials.query.
-                if (!request.auth.isAuthenticated) {
-                    return reply('Authentication failed due to: ' + request.auth.error.message);
+                    // Perform any account lookup or registration, setup local session,
+                    // and redirect to the application. The third-party credentials are
+                    // stored in request.auth.credentials. Any query parameters from
+                    // the initial request are passed back via request.auth.credentials.query.
+                    if (!request.auth.isAuthenticated) {
+                        return reply('Authentication failed due to: ' + request.auth.error.message);
+                    }
+                    return reply.redirect('/home');
                 }
-                return reply.redirect('/home');
+            }
+        }, {
+            method: 'GET',
+            path: '/scripts/{path*}',
+            config: {
+                handler: {
+                    directory: {
+                        path: './node_modules',
+                        listing: false,
+                        index: false
+                    }
+                },
+                plugins: {
+                    lout: false
+                }
+            }
+        }, {
+            method: 'GET',
+            path: '/public/{path*}',
+            config: {
+                handler: {
+                    directory: {
+                        path: './public',
+                        listing: false,
+                        index: true
+                    }
+                },
+                plugins: {
+                    lout: false
+                }
             }
         }
-    });
+    ]);
 });
 
 server.start(function () {
