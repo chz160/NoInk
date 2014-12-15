@@ -1,4 +1,6 @@
-﻿<div ng-controller="RequestSubmissionController">
+﻿{% extends './layout.html' %}
+{% block content %}
+<div ng-controller="RequestSubmissionController">
     <div class="container">
         First Name: <input type="text" ng-model="firstName" />
         Last Name: <input type="text" ng-model="lastName" />
