@@ -2,10 +2,10 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-sm-4">
-                <input id="firstName" type="text" class="form-control" ng-model="emergencyContact.firstName" placeholder="First Name" required />
+                <input id="firstName" name="firstName" type="text" class="form-control" ng-model="emergencyContact.firstName" placeholder="First Name" required/>
             </div>
             <div class="col-sm-4">
-                <input id="lastName" type="text" class="form-control" ng-model="emergencyContact.lastName" placeholder="Last Name" />
+                <input id="lastName" name="lastName" type="text" class="form-control" ng-model="emergencyContact.lastName" placeholder="Last Name" required/>
             </div>
         </div>
 
@@ -27,6 +27,9 @@
         <div class="row">
             <div class="col-sm-3">
                 <input id="email" type="text" class="form-control" ng-model="emergencyContact.email" placeholder="Email" />
+            </div>
+            <div class="col-sm-3" style="margin-top: 6px;">
+                <button type="button" class="btn btn-danger btn-sm" ng-click="removeEmergencyContact(emergencyContact)">Remove</button>
             </div>
         </div>
     </div>
