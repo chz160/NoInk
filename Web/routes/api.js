@@ -8,7 +8,6 @@ var authenticationService = require(appDir + '/services/authenticationService');
 var somethingService = require(appDir + '/services/somethingService.js');
 var mailService = require(appDir + '/services/mailService.js');
 
-
 module.exports = [
     { method: 'POST', path: '/api/login', config: authenticationService.login },
     { method: 'GET', path: '/api/logout', config: authenticationService.logout },
