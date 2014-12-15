@@ -1,8 +1,8 @@
 ﻿var noInkApp = angular.module('NoInkApp', []);
 
 
-noInkApp.controller('RequestSubmissionCtrl', function($scope, $http) {
-    $scope.requestSubmission = function() {
+noInkApp.controller('RequestSubmissionCtrl', function ($scope, $http) {
+    $scope.requestSubmission = function () {
         var email = $scope.email;
         $http({
             method: "POST",
@@ -13,10 +13,8 @@ noInkApp.controller('RequestSubmissionCtrl', function($scope, $http) {
 });
 
 
-
-
 noInkApp.controller('DataCtrl', function ($scope, $http, $filter) {
-    function ec() {
+    function newEmergencyContact() {
         this.firstName;
         this.lastName;
         this.homePhone;
@@ -25,14 +23,10 @@ noInkApp.controller('DataCtrl', function ($scope, $http, $filter) {
         this.businessPhoneExt;
         this.email;
     }
-
-    var x = new ec();
     
-    $scope.person = { emergencyContacts: [x] };
+    $scope.person = { emergencyContacts: [] };
     
     $scope.sexes = ["Male", "Female"];
-    
-    //$scope.states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "DC", "WV", "WI", "WY"];
     
     $scope.stateList = [
         { name: "Alabama", abbr: "AL" },
@@ -87,58 +81,56 @@ noInkApp.controller('DataCtrl', function ($scope, $http, $filter) {
         { name: "Wisconsin", abbr: "WI" },
         { name: "Wyoming", abbr: "WY" },
     ];
-
+    
     $scope.emergencyContactTemplate = { name: 'emergencyContact.html', url: 'emergencyContact.html' };
-
-    $scope.save = function () {
-        var validEmergencyContacts = [];
-        angular.forEach($scope.person.emergencyContacts, function(emergencyContact) {
-            console.log(emergencyContact.firstName);
-            if (emergencyContact.firstName != null) {
-                validEmergencyContacts.push(emergencyContact);
-            }
-        });
-
-        $scope.person.emergencyContacts = validEmergencyContacts;
-
+    
+    $scope.save = function (newSubmission) {
         $http({
             method: "POST",
             url: "/api/saveForm",
-            data: $scope.person
+            data: newSubmission
         });
+        
+        $scope.submissionForm.$setPristine();
+        $scope.person = {};
     };
-
-    $scope.addEmergencyContact = function() {
-        $scope.person.emergencyContacts.push(new ec);
+    
+    $scope.addEmergencyContact = function () {
+        $scope.person.emergencyContacts.push(new newEmergencyContact);
+    }
+    
+    $scope.removeEmergencyContact = function (ec) {
+        $scope.person.emergencyContacts.pop(ec);
     }
 });
 
+
 noInkApp.controller('SubmissionCtrl', function ($scope, $http) {
-    $scope.getSubmissions = function() {
+    $scope.getSubmissions = function () {
         $http({
             method: "GET",
             url: "/api/getSubmissions"
-        }).success(function(data) {
+        }).success(function (data) {
             $scope.submissions = data;
             console.log(data);
             $scope.detailView = false;
-        }).error(function(data, status, header, config) {
+        }).error(function (data, status, header, config) {
             console.log(data);
             console.log(status);
             console.log(header);
             console.log(config);
         });
     };
-
+    
     $scope.showDetail = function (row) {
         $http({
             method: "GET",
             url: "/api/getSubmissionDetail",
             params: { id: row._id }
-        }).success(function(data, status, headers, config) {
+        }).success(function (data, status, headers, config) {
             $scope.submission = data;
             $scope.detailView = true;
-        }).error(function(data, status, headers, config) {
+        }).error(function (data, status, headers, config) {
             console.log(data);
             console.log(status);
             console.log(headers);

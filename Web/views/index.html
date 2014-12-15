@@ -1,130 +1,182 @@
-﻿<div class="container" ng-controller="DataCtrl">
-    <fieldset>
-        <legend>Personal Information</legend>
+﻿<!DOCTYPE html>
+
+<html ng-app="NoInkApp" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Employment Application</title>
+    <link rel="stylesheet" href="/scripts/bootstrap/dist/css/bootstrap.min.css">
+    <script src="/scripts/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="/scripts/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/scripts/angular/angular.min.js" type="text/javascript"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-placeholder/2.0.8/jquery.placeholder.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <style>
+        input {
+            margin: 5px 5px 5px 5px;
+        }
+
+        select {
+            margin-top: 5.5px;
+            margin-left: 5.5px;
+        }
+
+        fieldset {
+            margin-bottom: 20px;
+        }
+    </style>
+    <style>
+        form .ng-invalid-required.ng-dirty {
+            background-color: lightpink;
+        }
+
+
+        form .ng-valid.ng-dirty {
+            background-color: lightgreen;
+        }
+
+        form .ng-invalid-required.ng-pristine {
+            border: 1px solid red;
+        }
+
+        span.summary.ng-invalid {
+            color: red;
+            font-weight: bold;
+        }
+
+        span.summary.ng-valid {
+            color: green;
+        }
+    </style>
+</head>
+<body class="container" ng-controller="DataCtrl">
+    <form name="submissionForm" ng-submit="save(person)" novalidate>
+        <fieldset>
+            <legend>Personal Information</legend>
+            <div class="row">
+                <div class="col-sm-3">
+                    <input id="firstName" name="firstName" type="text" class="form-control" ng-model="person.firstName" placeholder="First Name" required />
+                </div>
+                <div class="col-sm-3">
+                    <input id="middleName" type="text" class="form-control" ng-model="person.middleName" placeholder="Middle Name" />
+                </div>
+                <div class="col-sm-3">
+                    <input id="lastName" name="lastName" type="text" class="form-control" ng-model="person.lastName" placeholder="Last Name" required />
+                </div>
+                <div class="col-sm-2">
+                    <input id="suffix" type="text" class="form-control" ng-model="person.suffix" placeholder="Suffix" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <input id="dob" type="text" class="form-control" ng-model="person.dob" placeholder="Date of Birth" />
+                </div>
+                <div class="col-sm-3">
+                    <input id="ssn" type="text" class="form-control" ng-model="person.ssn" placeholder="SSN" />
+                </div>
+                <div class="col-sm-3">
+                    <select id="sex" ng-model="person.sex" ng-options="sex for sex in sexes" class="form-control">
+                        <option value="">Sex...</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <input id="initials" type="text" class="form-control" ng-model="person.initials" placeholder="Initials" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <input id="driversLicenseNumber" type="text" class="form-control" ng-model="person.driversLicenseNumber" placeholder="Drivers License Number" />
+                </div>
+                <div class="col-sm-4">
+                    <input id="driversLicenseState" type="text" class="form-control" ng-model="person.driversLicenseState" placeholder="Drivers License State" />
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Home Address</legend>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <input id="address1" type="text" class="form-control" ng-model="person.address1" placeholder="Address 1" />
+                    <input id="address2" type="text" class="form-control" ng-model="person.address2" placeholder="Address 2" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <input id="city" type="text" class="form-control" ng-model="person.city" placeholder="City" />
+                </div>
+                <div class="col-sm-2">
+                    <select id="state" ng-model="person.state" ng-options="state.name for state in stateList" class="form-control">
+                        <option value="">State...</option>
+                    </select>
+                </div>
+                <div class="col-sm-3">
+                    <input id="zip" type="text" class="form-control" ng-model="person.zip" placeholder="Zip" />
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Phone Numbers</legend>
+            <div class="row">
+                <div class="col-sm-3">
+                    <input id="BusinessPhone" type="text" class="form-control" ng-model="person.BusinessPhone" placeholder="Business Phone" />
+                </div>
+                <div class="col-sm-3">
+                    <input id="cellPhone" type="text" class="form-control" ng-model="person.cellPhone" placeholder="Cell Phone" />
+                </div>
+                <div class="col-sm-3">
+                    <input id="businessPhone" type="text" class="form-control" ng-model="person.businessPhone" placeholder="Business Phone" />
+                </div>
+                <div class="col-sm-3">
+                    <input id="businessPhoneExt" type="text" class="form-control" ng-model="person.businessPhoneExt" placeholder="Business Ext" />
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Emails</legend>
+            <div class="row">
+                <div class="col-sm-4">
+                    <input id="personalEmail1" type="text" class="form-control" ng-model="person.personalEmail1" placeholder="Personal Email 1" />
+                </div>
+                <div class="col-sm-4">
+                    <input id="personalEmail2" type="text" class="form-control" ng-model="person.personalEmail2" placeholder="Personal Email 2" />
+                </div>
+                <div class="col-sm-4">
+                    <input id="businessEmail" type="text" class="form-control" ng-model="person.businessEmail" placeholder="Business Email" />
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Medical</legend>
+            <div class="row">
+                <div class="col-sm-6">
+                    <input id="allergies" type="text" class="form-control" ng-model="person.allergies" placeholder="Allergies or other Medical Concerns" />
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Emergency Contacts <button type="button" ng-click="addEmergencyContact()" class="btn btn-success btn-sm" style="margin-bottom: 5px">Add Contact</button></legend>
+            <table class="table">
+                <tr ng-repeat="emergencyContact in person.emergencyContacts" data-ng-include="emergencyContactTemplate.url" autoscroll></tr>
+            </table>
+        </fieldset>
 
         <div class="row">
-            <div class="col-sm-3">
-                <input id="firstName" type="text" class="form-control" ng-model="person.firstName" placeholder="First Name" />
-            </div>
-            <div class="col-sm-3">
-                <input id="middleName" type="text" class="form-control" ng-model="person.middleName" placeholder="Middle Name" />
-            </div>
-            <div class="col-sm-3">
-                <input id="lastName" type="text" class="form-control" ng-model="person.lastName" placeholder="Last Name" />
-            </div>
-            <div class="col-sm-2">
-                <input id="suffix" type="text" class="form-control" ng-model="person.suffix" placeholder="Suffix" />
+            <div class="col-sm-12" style="margin-top: 15px;">
+                <button type="submit" class="btn btn-primary" ng-disabled="submissionForm.$invalid">Save</button>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-sm-3">
-                <input id="dob" type="text" class="form-control" ng-model="person.dob" placeholder="Date of Birth" />
-            </div>
-            <div class="col-sm-3">
-                <input id="ssn" type="text" class="form-control" ng-model="person.ssn" placeholder="SSN" />
-            </div>
-            <div class="col-sm-3">
-                <select id="sex" ng-model="person.sex" ng-options="sex for sex in sexes" class="form-control">
-                    <option value="">Sex...</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-3">
-                <input id="initials" type="text" class="form-control" ng-model="person.initials" placeholder="Initials" />
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-4">
-                <input id="driversLicenseNumber" type="text" class="form-control" ng-model="person.driversLicenseNumber" placeholder="Drivers License Number" />
-            </div>
-            <div class="col-sm-4">
-                <input id="driversLicenseState" type="text" class="form-control" ng-model="person.driversLicenseState" placeholder="Drivers License State" />
-            </div>
-        </div>
-    </fieldset>
-
-    <fieldset>
-        <legend>Home Address</legend>
-
-        <div class="row">
-            <div class="col-sm-4">
-                <input id="address1" type="text" class="form-control" ng-model="person.address1" placeholder="Address 1" />
-                <input id="address2" type="text" class="form-control" ng-model="person.address2" placeholder="Address 2" />
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-3">
-                <input id="city" type="text" class="form-control" ng-model="person.city" placeholder="City" />
-            </div>
-            <div class="col-sm-2">
-                <select id="state" ng-model="person.state" ng-options="state.name for state in stateList" class="form-control">
-                    <option value="">State...</option>
-                </select>
-            </div>
-            <div class="col-sm-3">
-                <input id="zip" type="text" class="form-control" ng-model="person.zip" placeholder="Zip" />
-            </div>
-        </div>
-    </fieldset>
-
-    <fieldset>
-        <legend>Phone Numbers</legend>
-        <div class="row">
-            <div class="col-sm-3">
-                <input id="BusinessPhone" type="text" class="form-control" ng-model="person.BusinessPhone" placeholder="Business Phone" />
-            </div>
-            <div class="col-sm-3">
-                <input id="cellPhone" type="text" class="form-control" ng-model="person.cellPhone" placeholder="Cell Phone" />
-            </div>
-            <div class="col-sm-3">
-                <input id="businessPhone" type="text" class="form-control" ng-model="person.businessPhone" placeholder="Business Phone" />
-            </div>
-            <div class="col-sm-3">
-                <input id="businessPhoneExt" type="text" class="form-control" ng-model="person.businessPhoneExt" placeholder="Business Ext" />
-            </div>
-        </div>
-    </fieldset>
-
-    <fieldset>
-        <legend>Emails</legend>
-        <div class="row">
-            <div class="col-sm-4">
-                <input id="personalEmail1" type="text" class="form-control" ng-model="person.personalEmail1" placeholder="Personal Email 1" />
-            </div>
-            <div class="col-sm-4">
-                <input id="personalEmail2" type="text" class="form-control" ng-model="person.personalEmail2" placeholder="Personal Email 2" />
-            </div>
-            <div class="col-sm-4">
-                <input id="businessEmail" type="text" class="form-control" ng-model="person.businessEmail" placeholder="Business Email" />
-            </div>
-        </div>
-    </fieldset>
-
-    <fieldset>
-        <legend>Emergency Contacts <button ng-click="addEmergencyContact()" class="btn btn-success btn-sm" style="margin-bottom: 5px">Add Contact</button></legend>
-        <table class="table">
-            <tr ng-repeat="emergencyContact in person.emergencyContacts" data-ng-include="emergencyContactTemplate.url"></tr>
-        </table>
-    </fieldset>
-
-    <fieldset>
-        <legend>Medical</legend>
-        <div class="row">
-            <div class="col-sm-6">
-                <input id="allergies" type="text" class="form-control" ng-model="person.allergies" placeholder="Allergies or other Medical Concerns" />
-            </div>
-        </div>
-    </fieldset>
-
-
-    <div class="row">
-        <div class="col-sm-12" style="margin-top: 15px;">
-            <button class="btn btn-primary" ng-click="save()">Save</button>
-        </div>
-    </div>
-</div>
+    </form>
+</body>
+</html>
