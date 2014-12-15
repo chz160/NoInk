@@ -152,6 +152,9 @@ noInkApp.controller('SubmissionController', function ($scope, $http) {
             console.log(config);
         });
     }
+
+    $scope.emergencyContactTemplate = { name: 'emergencyContact', url: 'emergencyContactView' };
+
 });
 
 $(function () {

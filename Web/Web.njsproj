@@ -45,6 +45,7 @@
     <Compile Include="services\somethingService.js" />
     <Content Include="plugins\auth\package.json" />
     <Content Include="public\css\site.css" />
+    <Content Include="views\emergencyContactView.html" />
     <Content Include="views\emergencyContact.html" />
     <Content Include="views\index.html" />
     <Content Include="package.json" />

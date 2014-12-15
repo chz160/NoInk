@@ -21,18 +21,17 @@
                     </button>
                 </td>
                 <td>
-                    <span ng-bind="s.firstName"></span> <span ng-bind="s.middleName"></span> <span ng-bind="s.lastName"></span> <span ng-bind="s.suffix"></span>
                     {{s.firstName }} {{s.middleName }} {{s.lastName }} {{s.suffix }}
                 </td>
                 <td>
-                    <div>h: <span ng-bind="s.homePhone | tel"></span>{{s.homePhone}}</div>
-                    <div>c: <span ng-bind="s.cellPhone | tel"></span>{{s.cellPhone}}</div>
-                    <div>b: <span ng-bind="s.businessPhone | tel"></span> <span ng-bind="s.businessPhoneExt"></span>{{s.businessPhone}} {{s.businessPhoneExt}}</div>
+                    <div>h: {{s.homePhone | tel}}</div>
+                    <div>c: {{s.cellPhone | tel}}</div>
+                    <div>b: {{s.businessPhone | tel}} {{s.businessPhoneExt}}</div>
                 </td>
                 <td>
-                    <div><span ng-bind="s.personalEmail1"></span>{{s.personalEmail1 }}</div>
-                    <div><span ng-bind="s.personalEmail2"></span>{{s.personalEmail2 }}</div>
-                    <div><span ng-bind="s.businessEmail"></span>{{s.businessEmail }}</div>
+                    <div>{{s.personalEmail1 }}</div>
+                    <div>{{s.personalEmail2 }}</div>
+                    <div>{{s.businessEmail }}</div>
                 </td>
             </tr>
         </tbody>
@@ -162,125 +161,12 @@
         </fieldset>
 
         <fieldset>
-            <legend>Emergency Contact 1</legend>
-            <!-- Emergency Contact 1 -->
-            <div class="row">
-                <div class="form-horizontal">
-                    <div class="col-sm-4">
-                        <input id="emergencyContact1FirstName" type="text" class="form-control" ng-model="submission.emergencyContact1FirstName" placeholder="First Name" />
-                    </div>
-                    <div class="col-sm-4">
-                        <input id="emergencyContact1LastName" type="text" class="form-control" ng-model="submission.emergencyContact1LastName" placeholder="Last Name" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="form-horizontal">
-                    <div class="col-sm-3">
-                        <input id="emergencyContact1BusinessPhone" type="text" class="form-control" ng-model="submission.emergencyContact1BusinessPhone" placeholder="Business Phone" />
-                    </div>
-                    <div class="col-sm-3">
-                        <input id="emergencyContact1CellPhone" type="text" class="form-control" ng-model="submission.emergencyContact1CellPhone" placeholder="Cell Phone" />
-                    </div>
-                    <div class="col-sm-3">
-                        <input id="emergencyContact1BusinessPhone" type="text" class="form-control" ng-model="submission.emergencyContact1BusinessPhone" placeholder="Business Phone" />
-                    </div>
-                    <div class="col-sm-3">
-                        <input id="emergencyContact1BusinessPhoneExt" type="text" class="form-control" ng-model="submission.emergencyContact1BusinessPhoneExt" placeholder="Business Phone Ext" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="form-horizontal">
-                    <div class="col-sm-3">
-                        <input id="emergencyContact1Email" type="text" class="form-control" ng-model="submission.emergencyContact1Email" placeholder="Email" />
-                    </div>
-                </div>
-            </div>
+            <legend>Emergency Contacts</legend>
+            <table class="table">
+                <tr ng-repeat="emergencyContact in submission.emergencyContacts" ng-include="emergencyContactTemplate.url" autoscroll></tr>
+            </table>
         </fieldset>
 
-        <fieldset>
-            <legend>Emergency Contact 2</legend>
-
-            <!-- Emergency Contact 2 -->
-            <div class="row">
-                <div class="form-horizontal">
-                    <div class="col-sm-4">
-                        <input id="emergencyContact2FirstName" type="text" class="form-control" ng-model="submission.emergencyContact2FirstName" placeholder="First Name" />
-                    </div>
-                    <div class="col-sm-4">
-                        <input id="emergencyContact2LastName" type="text" class="form-control" ng-model="submission.emergencyContact2LastName" placeholder="Last Name" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="form-horizontal">
-                    <div class="col-sm-3">
-                        <input id="emergencyContact2BusinessPhone" type="text" class="form-control" ng-model="submission.emergencyContact2BusinessPhone" placeholder="Business Phone" />
-                    </div>
-                    <div class="col-sm-3">
-                        <input id="emergencyContact2CellPhone" type="text" class="form-control" ng-model="submission.emergencyContact2CellPhone" placeholder="Cell Phone" />
-                    </div>
-                    <div class="col-sm-3">
-                        <input id="emergencyContact2BusinessPhone" type="text" class="form-control" ng-model="submission.emergencyContact2BusinessPhone" placeholder="Business Phone" />
-                    </div>
-                    <div class="col-sm-3">
-                        <input id="emergencyContact2BusinessPhoneExt" type="text" class="form-control" ng-model="submission.emergencyContact2BusinessPhoneExt" placeholder="Business Phone Ext" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="form-horizontal">
-                    <div class="col-sm-3">
-                        <input id="emergencyContact2Email" type="text" class="form-control" ng-model="submission.emergencyContact2Email" placeholder="Email" />
-                    </div>
-                </div>
-            </div>
-        </fieldset>
-        <fieldset>
-            <legend>Emergency Contact 3</legend>
-
-            <!-- Emergency Contact 3 -->
-            <div class="row">
-                <div class="form-horizontal">
-                    <div class="col-sm-4">
-                        <input id="emergencyContact3FirstName" type="text" class="form-control" ng-model="submission.emergencyContact3FirstName" placeholder="First Name" />
-                    </div>
-                    <div class="col-sm-4">
-                        <input id="emergencyContact3LastName" type="text" class="form-control" ng-model="submission.emergencyContact3LastName" placeholder="Last Name" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="form-horizontal">
-                    <div class="col-sm-3">
-                        <input id="emergencyContact3BusinessPhone" type="text" class="form-control" ng-model="submission.emergencyContact3BusinessPhone" placeholder="Business Phone" />
-                    </div>
-                    <div class="col-sm-3">
-                        <input id="emergencyContact3CellPhone" type="text" class="form-control" ng-model="submission.emergencyContact3CellPhone" placeholder="Cell Phone" />
-                    </div>
-                    <div class="col-sm-3">
-                        <input id="emergencyContact3BusinessPhone" type="text" class="form-control" ng-model="submission.emergencyContact3BusinessPhone" placeholder="Business Phone" />
-                    </div>
-                    <div class="col-sm-3">
-                        <input id="emergencyContact3BusinessPhoneExt" type="text" class="form-control" ng-model="submission.emergencyContact3BusinessPhoneExt" placeholder="Business Phone Ext" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="form-horizontal">
-                    <div class="col-sm-3">
-                        <input id="emergencyContact3Email" type="text" class="form-control" ng-model="submission.emergencyContact3Email" placeholder="Email" />
-                    </div>
-                </div>
-            </div>
-        </fieldset>
         <fieldset>
             <legend>Medical</legend>
             <div class="row">
