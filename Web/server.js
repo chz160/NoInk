@@ -1,5 +1,4 @@
-﻿var path = require('path');
-var hapi = require("hapi");
+﻿var hapi = require("hapi");
 
 var port = parseInt(process.env.PORT, 10) || 80;
 var server = new hapi.Server();
@@ -9,8 +8,9 @@ server.views({
     engines: {
         html: require('handlebars')
     },
-    path: path.join(__dirname, 'views'),
-    partialsPath: path.join(__dirname, 'views'),
+    relativeTo: __dirname,
+    path: './views',
+    partialsPath: './views',
     layout: true,
     isCached: false
 });
@@ -61,7 +61,10 @@ server.register([
                     return reply.redirect('/home');
                 }
             }
-        }, {
+        },
+        { method: 'GET', path: '/', handler: function (request, reply) { reply.view('index'); } },
+        { method: 'GET', path: '/submissions', handler: function (request, reply) { reply.view('submissions'); } },
+        {
             method: 'GET',
             path: '/scripts/{path*}',
             config: {

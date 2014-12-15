@@ -1,54 +1,4 @@
-﻿<!DOCTYPE html>
-
-<html ng-app="NoInkApp" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title>Employment Application</title>
-    <link rel="stylesheet" href="/scripts/bootstrap/dist/css/bootstrap.min.css">
-    <script src="/scripts/jquery/dist/jquery.min.js" type="text/javascript"></script>
-    <script src="/scripts/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="/scripts/angular/angular.min.js" type="text/javascript"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-placeholder/2.0.8/jquery.placeholder.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="app.js"></script>
-    <style>
-        input {
-            margin: 5px 5px 5px 5px;
-        }
-
-        select {
-            margin-top: 5.5px;
-            margin-left: 5.5px;
-        }
-
-        fieldset {
-            margin-bottom: 20px;
-        }
-    </style>
-    <style>
-        form .ng-invalid-required.ng-dirty {
-            background-color: lightpink;
-        }
-
-
-        form .ng-valid.ng-dirty {
-            background-color: lightgreen;
-        }
-
-        form .ng-invalid-required.ng-pristine {
-            border: 1px solid red;
-        }
-
-        span.summary.ng-invalid {
-            color: red;
-            font-weight: bold;
-        }
-
-        span.summary.ng-valid {
-            color: green;
-        }
-    </style>
-</head>
-<body class="container" ng-controller="DataCtrl">
+﻿<div class="container" ng-controller="DataCtrl">
     <form name="submissionForm" ng-submit="save(person)" novalidate>
         <fieldset>
             <legend>Personal Information</legend>
@@ -178,5 +128,4 @@
         </div>
 
     </form>
-</body>
-</html>
+</div>

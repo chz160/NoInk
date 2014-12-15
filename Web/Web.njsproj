@@ -37,7 +37,7 @@
     <Compile Include="plugins\auth\routes.js" />
     <Compile Include="services\authenticationService.js" />
     <Compile Include="services\mailService.js" />
-    <Compile Include="views\app.js" />
+    <Compile Include="public\js\app.js" />
     <Compile Include="services\dataService.js" />
     <Compile Include="routes\api.js" />
     <Compile Include="server.js" />
