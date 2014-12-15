@@ -1,0 +1,35 @@
+﻿input {
+    margin: 5px 5px 5px 5px;
+}
+
+select {
+    margin-top: 5.5px;
+    margin-left: 5.5px;
+}
+
+fieldset {
+    margin-bottom: 20px;
+}
+
+form .ng-invalid-required.ng-dirty {
+    background-color: lightpink;
+}
+
+
+form .ng-valid.ng-dirty {
+    background-color: lightgreen;
+}
+
+form .ng-invalid-required.ng-pristine {
+    border: 1px solid red;
+}
+
+span.summary.ng-invalid {
+    color: red;
+    font-weight: bold;
+}
+
+span.summary.ng-valid {
+    color: green;
+}
+
