@@ -1,16 +1,20 @@
 ﻿<div class="panel panel-default">
     <div class="panel-body">
         <div class="row">
-            <div class="col-sm-4">
-                <input id="emailAddress" name="emailAddress" type="text" class="form-control" ng-model="emailAddress.emailAddress" placeholder="Email Address" required />
+            <div class="col-sm-1">
+                ({{emailAddress.emailAddressType}})
             </div>
             <div class="col-sm-4">
+                <a href="mailto:{{emailAddress.emailAddress}}">{{emailAddress.emailAddress}}</a>
+                <!--<input id="emailAddress" name="emailAddress" type="text" class="form-control" ng-model="emailAddress.emailAddress" placeholder="Email Address" required />-->
+            </div>
+            <!--<div class="col-sm-4">
                 <select id="emailAddressType" name="emailAddressType" ng-model="emailAddress.emailAddressType" class="form-control" required>
                     <option value="">Email Address Type</option>
                     <option value="Home">Home</option>
                     <option value="Work">Work</option>
                 </select>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>

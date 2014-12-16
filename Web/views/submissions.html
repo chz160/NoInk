@@ -51,7 +51,10 @@
             <legend>Personal Information</legend>
 
             <div class="row">
-                <div class="form-horizontal">
+                <div class="col-sm-12">
+                    {{submission.firstName}} {{submission.middleName}} {{submission.lastName}}<span ng-hide="!submission.suffix">, {{submission.suffix}}</span>
+                </div>
+                <!--<div class="form-horizontal">
                     <div class="col-sm-3">
                         <input id="firstName" type="text" class="form-control" ng-model="submission.firstName" placeholder="First Name" />
                     </div>
@@ -64,36 +67,72 @@
                     <div class="col-sm-3">
                         <input id="suffix" type="text" class="form-control" ng-model="submission.suffix" placeholder="Suffix" />
                     </div>
-                </div>
+                </div>-->
             </div>
 
             <div class="row">
-                <div class="form-horizontal">
-                    <div class="col-sm-3">
-                        <input id="dob" type="text" class="form-control" ng-model="submission.dob" placeholder="Date of Birth" />
-                    </div>
-                    <div class="col-sm-3">
-                        <input id="ssn" type="text" class="form-control" ng-model="submission.ssn" placeholder="SSN" />
-
-
-                    </div>
-                    <div class="col-sm-3">
-                        <select id="sex" ng-model="submission.sex" ng-options="sex for sex in sexes" class="form-control">
-                            <option value="">Sex...</option>
-                        </select>
-                    </div>
+                <div class="col-sm-1">
+                    Birthdate:
                 </div>
+                <div class="col-sm-2">
+                    {{submission.dob}}
+                </div>
+                <div class="col-sm-1 col-sm-push-1">
+                    SSN:
+                </div>
+                <div class="col-sm-2 col-sm-push-1">
+                    {{submission.ssn}}
+                </div>
+                <div class="col-sm-1 col-sm-push-1">
+                    Sex:
+                </div>
+                <div class="col-sm-2 col-sm-push-1">
+                    {{submission.sex}}
+                </div>
+                <!--<div class="form-horizontal">
+                        <div class="col-sm-3">
+                            <input id="dob" type="text" class="form-control" ng-model="submission.dob" placeholder="Date of Birth" />
+                        </div>
+                        <div class="col-sm-3">
+                            <input id="ssn" type="text" class="form-control" ng-model="submission.ssn" placeholder="SSN" />
+
+
+                        </div>
+                        <div class="col-sm-3">
+                            <select id="sex" ng-model="submission.sex" ng-options="sex for sex in sexes" class="form-control">
+                                <option value="">Sex...</option>
+                            </select>
+                        </div>
+                    </div>-->
             </div>
 
             <div class="row">
-                <div class="form-horizontal">
+                <div class="col-sm-1">
+                    Initials:
+                </div>
+                <div class="col-sm-2">
+                    {{submission.initials}}
+                </div>
+                <div class="col-sm-1 col-sm-push-1">
+                    DL#: 
+                </div>
+                <div class="col-sm-2 col-sm-push-1">
+                    {{submission.driversLicenseNumber}}
+                </div>
+                <div class="col-sm-1 col-sm-push-1">
+                    DL State:
+                </div>
+                <div class="col-sm-2 col-sm-push-1">
+                    {{submission.driversLicenseState.name}}
+                </div>
+                <!--<div class="form-horizontal">
                     <div class="col-sm-3">
                         <input id="initials" type="text" class="form-control" ng-model="submission.initials" placeholder="Initials" />
                     </div>
-                </div>
+                </div>-->
             </div>
 
-            <div class="row">
+            <!--<div class="row">
                 <div class="form-horizontal">
                     <div class="col-sm-4">
                         <input id="driversLicenseNumber" type="text" class="form-control" ng-model="submission.driversLicenseNumber" placeholder="Drivers License Number" />
@@ -102,7 +141,7 @@
                         <input id="driversLicenseState" type="text" class="form-control" ng-model="submission.driversLicenseState" placeholder="Drivers License State" />
                     </div>
                 </div>
-            </div>
+            </div>-->
         </fieldset>
 
         <fieldset>
@@ -191,11 +230,17 @@
         <fieldset>
             <legend>Medical</legend>
             <div class="row">
-                <div class="form-horizontal">
+                <div class="col-sm-1">
+                    Allergies:
+                </div>
+                <div class="col-sm-10">
+                    {{submission.allergies}}
+                </div>
+                <!--<div class="form-horizontal">
                     <div class="col-sm-6">
                         <input id="allergies" type="text" class="form-control" ng-model="submission.allergies" placeholder="Allergies or other Medical Concerns" />
                     </div>
-                </div>
+                </div>-->
             </div>
         </fieldset>
     </div>

@@ -1,16 +1,20 @@
 ﻿<div class="panel panel-default">
     <div class="panel-body">
         <div class="row">
-            <div class="col-sm-4">
-                <input id="phoneNumber" name="phoneNumber" type="text" class="form-control" ng-model="phone.phoneNumber" placeholder="Phone Number" required />
+            <div class="col-sm-1">
+                ({{phone.phoneType}})
             </div>
             <div class="col-sm-4">
+                {{phone.phoneNumber | tel}}
+                <!--<input id="phoneNumber" name="phoneNumber" type="text" class="form-control" ng-model="phone.phoneNumber" placeholder="Phone Number" required />-->
+            </div>
+            <!--<div class="col-sm-4">
                 <select id="phoneType" name="phoneType" ng-model="phone.phoneType" class="form-control">
                     <option value="Home">Home</option>
                     <option value="Mobile">Mobile</option>
                     <option value="Work">Work</option>
                 </select>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>
