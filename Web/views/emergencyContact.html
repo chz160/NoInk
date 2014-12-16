@@ -29,7 +29,9 @@
                 <input id="email" type="text" class="form-control" ng-model="emergencyContact.email" placeholder="Email" />
             </div>
             <div class="col-sm-3" style="margin-top: 6px;">
-                <button type="button" class="btn btn-danger btn-sm" ng-click="removeEmergencyContact(emergencyContact)">Remove</button>
+                <button type="button" ng-click="removeEmergencyContact(emergencyContact)" class="btn btn-danger btn-sm" aria-label="Left Align" style="margin-bottom: 5px">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
             </div>
         </div>
     </div>

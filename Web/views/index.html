@@ -57,7 +57,11 @@
         </fieldset>
 
         <fieldset>
-            <legend>Addresses <button type="button" ng-click="addAddress()" class="btn btn-success btn-sm" style="margin-bottom: 5px">Add</button></legend>
+            <legend>Addresses
+                <button type="button" ng-click="addAddress()" class="btn btn-success btn-sm" aria-label="Left Align" style="margin-bottom: 5px">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+            </legend>
             <table class="table">
                 <tr ng-repeat="address in person.addresses" ng-include="addressTemplate.url" autoscroll></tr>
             </table>
@@ -85,7 +89,11 @@
         </fieldset>
 
         <fieldset>
-            <legend>Phone Numbers <button type="button" ng-click="addPhoneNumber()" class="btn btn-success btn-sm" style="margin-bottom: 5px">Add</button></legend>
+            <legend>Phone Numbers 
+                <button type="button" ng-click="addPhoneNumber()" class="btn btn-success btn-sm" aria-label="Left Align" style="margin-bottom: 5px">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+            </legend>
             <table class="table">
                 <tr ng-repeat="phone in person.phoneNumbers" ng-include="phoneTemplate.url" autoscroll></tr>
             </table>
@@ -108,7 +116,11 @@
         </fieldset>
 
         <fieldset>
-            <legend>Email Addresses <button type="button" ng-click="addEmailAddress()" class="btn btn-success btn-sm" style="margin-bottom: 5px">Add</button></legend>
+            <legend>Email Addresses 
+                <button type="button" ng-click="addEmailAddress()" class="btn btn-success btn-sm" aria-label="Left Align" style="margin-bottom: 5px">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>            
+            </legend>
             <table class="table">
                 <tr ng-repeat="emailAddress in person.emailAddresses" ng-include="emailAddressTemplate.url" autoscroll></tr>
             </table>
@@ -137,7 +149,11 @@
         </fieldset>
 
         <fieldset>
-            <legend>Emergency Contacts <button type="button" ng-click="addEmergencyContact()" class="btn btn-success btn-sm" style="margin-bottom: 5px">Add</button></legend>
+            <legend>Emergency Contacts 
+                <button type="button" ng-click="addEmergencyContact()" class="btn btn-success btn-sm" aria-label="Left Align" style="margin-bottom: 5px">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+            </legend>
             <table class="table">
                 <tr ng-repeat="emergencyContact in person.emergencyContacts" ng-include="emergencyContactTemplate.url" autoscroll></tr>
             </table>
