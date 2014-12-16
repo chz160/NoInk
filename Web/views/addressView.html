@@ -1,0 +1,31 @@
+﻿<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-4">
+                <input id="address1" name="address1" type="text" class="form-control" ng-model="address.address1" placeholder="Address 1" required/>
+                <input id="address2" name="address2" type="text" class="form-control" ng-model="address.address2" placeholder="Address 2" />
+            </div>
+            <div class="col-sm-4">
+                <select id="addressType" name="addressType" ng-model="address.addressType" class="form-control" required>
+                    <option value="">Address Type</option>
+                    <option value="Home">Home</option>
+                    <option value="Work">Work</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <input id="city" name="city" type="text" class="form-control" ng-model="address.city" placeholder="City" required />
+            </div>
+            <div class="col-sm-3">
+                <select id="state" name="state" ng-model="person.state" ng-options="state.name for state in stateList" class="form-control" required>
+                    <option value="">State...</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <input id="zip" name="zip" type="text" class="form-control" ng-model="address.zip" placeholder="Zip" />
+            </div>
+        </div>
+    </div>
+</div>

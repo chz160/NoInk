@@ -1,23 +1,26 @@
 ﻿noInkApp.controller('DataController', function ($scope, $http, $filter) {
-    function newEmergencyContact() {
-        this.firstName;
-        this.lastName;
-        this.homePhone;
-        this.cellPhone;
-        this.businessPhone;
-        this.businessPhoneExt;
-        this.email;
-    }
+    //function newEmergencyContact() {
+    //    this.firstName;
+    //    this.lastName;
+    //    this.homePhone;
+    //    this.cellPhone;
+    //    this.businessPhone;
+    //    this.businessPhoneExt;
+    //    this.email;
+    //}
     
     $scope.person = {
         emergencyContacts: [],
-        phoneNumbers: []
+        phoneNumbers: [],
+        addresses: [],
+        emailAddresses: []
     };
     
     $scope.sexes = ["Male", "Female"];
-    
     $scope.emergencyContactTemplate = { name: 'emergencyContact', url: 'emergencyContact' };
     $scope.phoneTemplate = { name: 'phone', url: 'phone' };
+    $scope.addressTemplate = { name: 'address', url: 'address' };
+    $scope.emailAddressTemplate = { name: 'emailAddress', url: 'emailAddress' };
     
     $scope.getStates = function () {
         $http({
@@ -34,7 +37,6 @@
         });
     };
     
-    
     $scope.save = function (newSubmission) {
         $http({
             method: "POST",
@@ -45,24 +47,38 @@
         $scope.submissionForm.$setPristine();
         $scope.person = {};
     };
-    
-    $scope.addEmergencyContact = function () {
-        $scope.person.emergencyContacts.push(new newEmergencyContact);
-    }
-    
-    $scope.removeEmergencyContact = function (ec) {
+
+    $scope.addEmailAddress = function() {
+        $scope.person.emailAddresses.push({});
+    };
+
+    $scope.removeEmailAddress = function(emailAddress) {
+        $scope.person.emailAddresses.pop(emailAddress);
+    };
+
+    $scope.addAddress = function() {
+        $scope.person.addresses.push({});
+    };
+
+    $scope.removeAddress = function(address) {
+        $scope.person.addresses.pop(address);
+    };
+
+    $scope.addEmergencyContact = function() {
+        $scope.person.emergencyContacts.push({});
+    };
+
+    $scope.removeEmergencyContact = function(ec) {
         $scope.person.emergencyContacts.pop(ec);
-    }
-    
-    $scope.addPhoneNumber = function () {
-        $scope.person.phoneNumbers.push({ phoneNumber: "" });
-    }
-    
-    $scope.removePhoneNumber = function (phone) {
+    };
+
+    $scope.addPhoneNumber = function() {
+        $scope.person.phoneNumbers.push({});
+    };
+
+    $scope.removePhoneNumber = function(phone) {
         $scope.person.phoneNumbers.pop(phone);
-    }
-    
-    
+    };
     
     $scope.getStates();
 });

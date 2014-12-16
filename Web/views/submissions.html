@@ -106,9 +106,12 @@
         </fieldset>
 
         <fieldset>
-            <legend>Home Address</legend>
+            <legend>Addresses</legend>
+            <table class="table">
+                <tr ng-repeat="address in submission.addresses" ng-include="addressTemplate.url" autoscroll></tr>
+            </table>
 
-            <div class="row">
+            <!--<div class="row">
                 <div class="col-sm-4">
                     <input id="address1" type="text" class="form-control" ng-model="submission.address1" placeholder="Address 1" />
                     <input id="address2" type="text" class="form-control" ng-model="submission.address2" placeholder="Address 2" />
@@ -129,7 +132,7 @@
                         <input id="zip" type="text" class="form-control" ng-model="submission.zip" placeholder="Zip" />
                     </div>
                 </div>
-            </div>
+            </div>-->
         </fieldset>
 
         <fieldset>
@@ -157,8 +160,13 @@
         </fieldset>
 
         <fieldset>
-            <legend>Emails</legend>
-            <div class="row">
+            <legend>Email Addresses</legend>
+            <table class="table">
+                <tr ng-repeat="emailAddress in submission.emailAddresses" ng-include="emailAddressTemplate.url" autoscroll></tr>
+            </table>
+
+
+            <!--<div class="row">
                 <div class="form-horizontal">
                     <div class="col-sm-4">
                         <input id="personalEmail1" type="text" class="form-control" ng-model="submission.personalEmail1" placeholder="Personal Email 1" />
@@ -170,7 +178,7 @@
                         <input id="businessEmail" type="text" class="form-control" ng-model="submission.businessEmail" placeholder="Business Email" />
                     </div>
                 </div>
-            </div>
+            </div>-->
         </fieldset>
 
         <fieldset>

@@ -52,9 +52,12 @@
         </fieldset>
 
         <fieldset>
-            <legend>Home Address</legend>
+            <legend>Addresses <button type="button" ng-click="addAddress()" class="btn btn-success btn-sm" style="margin-bottom: 5px">Add</button></legend>
+            <table class="table">
+                <tr ng-repeat="address in person.addresses" ng-include="addressTemplate.url" autoscroll></tr>
+            </table>
 
-            <div class="row">
+            <!--<div class="row">
                 <div class="col-sm-4">
                     <input id="address1" name="address1" type="text" class="form-control" ng-model="person.address1" placeholder="Address 1" />
                     <input id="address2" name="address2" type="text" class="form-control" ng-model="person.address2" placeholder="Address 2" />
@@ -73,7 +76,7 @@
                 <div class="col-sm-3">
                     <input id="zip" name="zip" type="text" class="form-control" ng-model="person.zip" placeholder="Zip" />
                 </div>
-            </div>
+            </div>-->
         </fieldset>
 
         <fieldset>
@@ -83,7 +86,7 @@
             </table>
             
             
-            <div class="row">
+            <!--<div class="row">
                 <div class="col-sm-3">
                     <input id="homePhone" name="homePhone" type="text" class="form-control" ng-model="person.homePhone" placeholder="Home Phone" />
                 </div>
@@ -96,12 +99,17 @@
                 <div class="col-sm-3">
                     <input id="businessPhoneExt" name="businessPhoneExt" type="text" class="form-control" ng-model="person.businessPhoneExt" placeholder="Business Ext" />
                 </div>
-            </div>
+            </div>-->
         </fieldset>
 
         <fieldset>
-            <legend>Emails</legend>
-            <div class="row">
+            <legend>Email Addresses <button type="button" ng-click="addEmailAddress()" class="btn btn-success btn-sm" style="margin-bottom: 5px">Add</button></legend>
+            <table class="table">
+                <tr ng-repeat="emailAddress in person.emailAddresses" ng-include="emailAddressTemplate.url" autoscroll></tr>
+            </table>
+
+
+            <!--<div class="row">
                 <div class="col-sm-4">
                     <input id="personalEmail1" name="personalEmail1" type="email" class="form-control" ng-model="person.personalEmail1" placeholder="Personal Email 1" />
                 </div>
@@ -111,7 +119,7 @@
                 <div class="col-sm-4">
                     <input id="businessEmail" name="businessEmail" type="email" class="form-control" ng-model="person.businessEmail" placeholder="Business Email" />
                 </div>
-            </div>
+            </div>-->
         </fieldset>
 
         <fieldset>

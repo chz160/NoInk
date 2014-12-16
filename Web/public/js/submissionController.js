@@ -34,6 +34,8 @@
     
     $scope.emergencyContactTemplate = { name: 'emergencyContact', url: 'emergencyContactView' };
     $scope.phoneTemplate = { name: 'phone', url: 'phoneView' };
+    $scope.addressTemplate = { name: 'address', url: 'addressView' };
+    $scope.emailAddressTemplate = { name: 'emailAddress', url: 'emailAddressView' };
     
     $scope.getSubmissions();
 });

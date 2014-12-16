@@ -1,11 +1,15 @@
 ﻿<div class="panel panel-default">
     <div class="panel-body">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <input id="phoneNumber" name="phoneNumber" type="text" class="form-control" ng-model="phone.phoneNumber" placeholder="Phone Number" required />
             </div>
-            <div class="col-sm-4">
-                <select id="phoneType" name="phoneType" ng-model="phone.phoneType" class="form-control">
+            <div class="col-sm-2">
+                <input id="phoneNumberExt" name="phoneNumberExt" type="text" class="form-control" ng-model="phone.phoneNumberExt" placeholder="Extension" required />
+            </div>
+            <div class="col-sm-3">
+                <select id="phoneType" name="phoneType" ng-model="phone.phoneType" class="form-control" required>
+                    <option value="">Phone Type</option>
                     <option value="Home">Home</option>
                     <option value="Mobile">Mobile</option>
                     <option value="Work">Work</option>

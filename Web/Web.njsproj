@@ -50,6 +50,9 @@
     <Compile Include="services\somethingService.js" />
     <Content Include="plugins\auth\package.json" />
     <Content Include="public\css\site.css" />
+    <Content Include="views\addressView.html" />
+    <Content Include="views\address.html" />
+    <Content Include="views\emailAddressView.html" />
     <Content Include="views\emergencyContactView.html" />
     <Content Include="views\emergencyContact.html" />
     <Content Include="views\index.html" />
@@ -57,6 +60,7 @@
     <Content Include="README.md" />
     <Content Include="views\layout.html" />
     <Content Include="views\login.html" />
+    <Content Include="views\emailAddress.html" />
     <Content Include="views\phoneView.html" />
     <Content Include="views\phone.html" />
     <Content Include="views\register.html" />
