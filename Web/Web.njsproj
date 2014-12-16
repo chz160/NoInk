@@ -6,6 +6,7 @@
     <Name>Web</Name>
     <RootNamespace>Web</RootNamespace>
     <NodeExePath>C:\Program Files\nodejs\node.exe</NodeExePath>
+    <Environment>env=development</Environment>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -36,6 +37,10 @@
     <Compile Include="plugins\auth\handlers.js" />
     <Compile Include="plugins\auth\routes.js" />
     <Compile Include="public\js\app.js" />
+    <Compile Include="public\js\dataController.js" />
+    <Compile Include="public\js\filters.js" />
+    <Compile Include="public\js\requestSubmissionController.js" />
+    <Compile Include="public\js\submissionController.js" />
     <Compile Include="routes\views.js" />
     <Compile Include="services\authenticationService.js" />
     <Compile Include="services\mailService.js" />
@@ -52,6 +57,8 @@
     <Content Include="README.md" />
     <Content Include="views\layout.html" />
     <Content Include="views\login.html" />
+    <Content Include="views\phoneView.html" />
+    <Content Include="views\phone.html" />
     <Content Include="views\register.html" />
     <Content Include="views\requestSubmission.html" />
     <Content Include="views\submissions.html" />

@@ -1,5 +1,11 @@
 ﻿{% extends './layout.html' %}
 {% block content %}
+<style>
+    .table {
+        margin-bottom: 5px; /*override bootstrap*/
+    }
+</style>
+
 <div class="container" ng-controller="SubmissionController">
     <div>
         <button ng-click="getSubmissions()" class="btn btn-primary">Get Submissions</button>
@@ -24,9 +30,12 @@
                     {{s.firstName }} {{s.middleName }} {{s.lastName }} {{s.suffix }}
                 </td>
                 <td>
-                    <div>h: {{s.homePhone | tel}}</div>
+                    <div ng-repeat="phoneNumber in s.phoneNumbers">
+                        {{phoneNumber.phoneType}}: {{phoneNumber.phoneNumber | tel}}                        
+                    </div>
+                    <!--<div>h: {{s.homePhone | tel}}</div>
                     <div>c: {{s.cellPhone | tel}}</div>
-                    <div>b: {{s.businessPhone | tel}} {{s.businessPhoneExt}}</div>
+                    <div>b: {{s.businessPhone | tel}} {{s.businessPhoneExt}}</div>-->
                 </td>
                 <td>
                     <div>{{s.personalEmail1 }}</div>
@@ -125,7 +134,11 @@
 
         <fieldset>
             <legend>Phone Numbers</legend>
-            <div class="row">
+            <table class="table">
+                <tr ng-repeat="phone in submission.phoneNumbers" ng-include="phoneTemplate.url" autoscroll></tr>
+            </table>
+
+            <!--<div class="row">
                 <div class="form-horizontal">
                     <div class="col-sm-3">
                         <input id="BusinessPhone" type="text" class="form-control" ng-model="submission.BusinessPhone" placeholder="Business Phone" />
@@ -140,7 +153,7 @@
                         <input id="businessPhoneExt" type="text" class="form-control" ng-model="submission.businessPhoneExt" placeholder="Business Ext" />
                     </div>
                 </div>
-            </div>
+            </div>-->
         </fieldset>
 
         <fieldset>

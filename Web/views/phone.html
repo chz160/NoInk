@@ -1,0 +1,19 @@
+﻿<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-4">
+                <input id="phoneNumber" name="phoneNumber" type="text" class="form-control" ng-model="phone.phoneNumber" placeholder="Phone Number" required />
+            </div>
+            <div class="col-sm-4">
+                <select id="phoneType" name="phoneType" ng-model="phone.phoneType" class="form-control">
+                    <option value="Home">Home</option>
+                    <option value="Mobile">Mobile</option>
+                    <option value="Work">Work</option>
+                </select>
+            </div>
+            <div class="col-sm-3" style="margin-top: 6px;">
+                <button type="button" class="btn btn-danger btn-sm" ng-click="removePhoneNumber(phone)">Remove</button>
+            </div>
+        </div>
+    </div>
+</div>

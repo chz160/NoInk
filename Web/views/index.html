@@ -77,7 +77,12 @@
         </fieldset>
 
         <fieldset>
-            <legend>Phone Numbers</legend>
+            <legend>Phone Numbers <button type="button" ng-click="addPhoneNumber()" class="btn btn-success btn-sm" style="margin-bottom: 5px">Add</button></legend>
+            <table class="table">
+                <tr ng-repeat="phone in person.phoneNumbers" ng-include="phoneTemplate.url" autoscroll></tr>
+            </table>
+            
+            
             <div class="row">
                 <div class="col-sm-3">
                     <input id="homePhone" name="homePhone" type="text" class="form-control" ng-model="person.homePhone" placeholder="Home Phone" />
