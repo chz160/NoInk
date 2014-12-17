@@ -14,7 +14,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>70bbf9e5-2b2b-4e64-b569-f2746dc5edb9</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>server.js</StartupFile>
+    <StartupFile>bin/www</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -48,6 +48,7 @@
     <Compile Include="routes\api.js" />
     <Compile Include="server.js" />
     <Compile Include="services\somethingService.js" />
+    <Content Include="bin\www" />
     <Content Include="plugins\auth\package.json" />
     <Content Include="public\css\site.css" />
     <Content Include="views\addressView.html" />
@@ -55,6 +56,7 @@
     <Content Include="views\emailAddressView.html" />
     <Content Include="views\emergencyContactView.html" />
     <Content Include="views\emergencyContact.html" />
+    <Content Include="views\error.html" />
     <Content Include="views\index.html" />
     <Content Include="package.json" />
     <Content Include="README.md" />
@@ -68,6 +70,7 @@
     <Content Include="views\submissions.html" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\" />
     <Folder Include="public\" />
     <Folder Include="plugins\" />
     <Folder Include="plugins\auth\" />

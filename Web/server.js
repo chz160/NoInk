@@ -1,45 +1,72 @@
-﻿var hapi = require("hapi"),
+﻿var express = require('express'),
+    path = require('path'),
+    favicon = require('serve-favicon'),
+    logger = require('morgan'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser'),
     swig = require('swig');
 
-var port = parseInt(process.env.PORT, 10) || 80;
-var server = new hapi.Server();
-server.connection({ port: port });
+var apiRoutes = require("./routes/api");
+var viewRoutes = require("./routes/views");
 
+var app = express();
+
+app.engine('html', swig.renderFile);
+app.set('view engine', 'html');
+app.set('views', path.join(__dirname, 'views'));
 swig.setDefaults({ varControls: ['[[', ']]'] });
 
-server.views({
-    engines: {
-        html: swig
-    },
-    relativeTo: __dirname,
-    path: './views',
-    isCached: false
+//Turn off view caching in dev
+if (app.get('env') === 'development') {
+    app.set('view cache', false);
+    swig.setDefaults({ cache: false });
+}
+
+// uncomment after placing favicon in /public
+//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(require('stylus').middleware(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, '/public')));
+app.use('/scripts', express.static(path.join(__dirname, '/node_modules')));
+
+//Load the API routes
+app.use("/api", apiRoutes);
+
+//Load the View routes
+app.use("/", viewRoutes);
+
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
-server.register([
-    { register: require('bell') },
-    { register: require('hapi-auth-cookie') },
-    { register: require('./plugins/auth') }], function (err) {
-    if (err) throw err;
-    // Declare an authentication strategy using the bell scheme
-    // with the name of the provider, cookie encryption password,
-    // and the OAuth client credentials.
-    server.auth.strategy('twitter', 'bell', {
-        provider: 'twitter',
-        password: 'cookie_encryption_password',
-        clientId: 'my_twitter_client_id',
-        clientSecret: 'my_twitter_client_secret',
-        isSecure: false     // Terrible idea but required if not using HTTPS
+// error handlers
+
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+    app.use(function (err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
     });
-    
-    //Load the API routes
-    var apiRoutes = require("./routes/api");
-    server.route(apiRoutes);
+}
 
-    var viewRoutes = require("./routes/views");
-    server.route(viewRoutes);
+// production error handler
+// no stacktraces leaked to user
+app.use(function (err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
 });
 
-server.start(function () {
-    console.log('Server running at:', server.info.uri);
-});
+module.exports = app;

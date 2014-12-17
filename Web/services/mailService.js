@@ -8,7 +8,7 @@ var options = {
 };
 var transporter = nodemailer.createTransport(sgTransport(options));
 
-exports.sendMail = function(request, reply) {
+exports.sendMail = function(reg, res) {
     transporter.sendMail({
         from: 'derekhlawless@gmail.com',
         to: 'derekhlawless@gmail.com',

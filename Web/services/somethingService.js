@@ -1,26 +1,25 @@
-﻿var DataServiceType = require('./dataService.js');
-var dataService = new DataServiceType();
+﻿var dataService = require('./dataService.js');
 
-exports.saveForm = function (request, reply) {
-    dataService.insertFormSubmission(request.payload);
+exports.saveForm = function (req, res) {
+    dataService.insertFormSubmission(req.payload);
     return true;
 }
 
-exports.getSubmissions = function(request, reply) {
+exports.getSubmissions = function(req, res) {
     dataService.getSubmissions(function(docs) {
-        reply(docs);
+        res.json(docs);
     });
     return true;
 }
 
-exports.getSubmissionDetail = function (request, reply) {
-    dataService.getSubmissionDetail(request.query.id, function(doc) {
-        reply(doc);
+exports.getSubmissionDetail = function (req, res) {
+    dataService.getSubmissionDetail(req.query.id, function(doc) {
+        res.json(doc);
     });
     return true;
 }
 
-exports.getStates = function (request, reply) {
+exports.getStates = function (req, res) {
     var stateList = [
         { name: "Alabama", abbr: "AL" },
         { name: "Alaska", abbr: "AK" },
@@ -74,6 +73,6 @@ exports.getStates = function (request, reply) {
         { name: "Wisconsin", abbr: "WI" },
         { name: "Wyoming", abbr: "WY" },
     ];
-    reply(stateList);
+    res.json(stateList);
     return true;
 }
