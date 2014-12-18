@@ -36,10 +36,6 @@
     <Compile Include="config\database.js" />
     <Compile Include="config\passport.js" />
     <Compile Include="models\user.js" />
-    <Compile Include="plugins\auth\auth.js" />
-    <Compile Include="plugins\auth\config.js" />
-    <Compile Include="plugins\auth\handlers.js" />
-    <Compile Include="plugins\auth\routes.js" />
     <Compile Include="public\js\app.js" />
     <Compile Include="public\js\dataController.js" />
     <Compile Include="public\js\filters.js" />
@@ -53,7 +49,6 @@
     <Compile Include="server.js" />
     <Compile Include="services\somethingService.js" />
     <Content Include="bin\www" />
-    <Content Include="plugins\auth\package.json" />
     <Content Include="public\css\site.css" />
     <Content Include="views\addressView.html" />
     <Content Include="views\address.html" />
@@ -81,8 +76,6 @@
     <Folder Include="config\" />
     <Folder Include="models\" />
     <Folder Include="public\" />
-    <Folder Include="plugins\" />
-    <Folder Include="plugins\auth\" />
     <Folder Include="public\css\" />
     <Folder Include="public\js\" />
     <Folder Include="public\images\" />
