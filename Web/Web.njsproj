@@ -6,7 +6,7 @@
     <Name>Web</Name>
     <RootNamespace>Web</RootNamespace>
     <NodeExePath>C:\Program Files\nodejs\node.exe</NodeExePath>
-    <Environment>env=development</Environment>
+    <Environment>ENVIRONMENT=development</Environment>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -57,6 +57,7 @@
     <Content Include="public\css\site.css" />
     <Content Include="views\addressView.html" />
     <Content Include="views\address.html" />
+    <Content Include="views\connect-local.html" />
     <Content Include="views\emailAddressView.html" />
     <Content Include="views\emergencyContactView.html" />
     <Content Include="views\emergencyContact.html" />
