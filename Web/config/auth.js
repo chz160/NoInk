@@ -5,8 +5,8 @@ var store = new Confidence.Store({
         '$filter': 'env',
         'development': {
             'facebookAuth' : {
-                'clientID'      : '330754070441547', // your App ID
-                'clientSecret'  : '871d0a922840fb27a97098ca9ee1417c', // your App Secret
+                'clientID'      : '330754070441547',
+                'clientSecret'  : '871d0a922840fb27a97098ca9ee1417c',
                 'callbackURL'   : 'http://localhost:1337/auth/facebook/callback'
             },
             'twitterAuth' : {
@@ -22,8 +22,8 @@ var store = new Confidence.Store({
         },
         '$default': {
             'facebookAuth' : {
-                'clientID'      : '330752823775005', // your App ID
-                'clientSecret'  : 'd357ece0c4a1c16f9e72110172c79277', // your App Secret
+                'clientID'      : '330752823775005',
+                'clientSecret'  : 'd357ece0c4a1c16f9e72110172c79277',
                 'callbackURL'   : 'http://ec2-54-68-202-243.us-west-2.compute.amazonaws.com/auth/facebook/callback'
             },
             'twitterAuth' : {
