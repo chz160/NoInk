@@ -27,8 +27,8 @@ var store = new Confidence.Store({
                 'callbackURL'   : 'http://ec2-54-68-202-243.us-west-2.compute.amazonaws.com/auth/facebook/callback'
             },
             'twitterAuth' : {
-                'consumerKey'       : 'X74DWvl8YtNsuzI0E84d45rXT',
-                'consumerSecret'    : 'jKoS00dEsUgmRzWf492aK5ZnQnn18LMWYZ8eFTiTKoxjpFejBX',
+                'consumerKey'       : 'NRTcpmSFTOWgNOpIXNT8G0K5c',
+                'consumerSecret'    : 'nSGbd6vZD2TMqQYbanlTGwqcUBn6QuKC9CbWnDNqNlnzNcmyZl',
                 'callbackURL'       : 'http://ec2-54-68-202-243.us-west-2.compute.amazonaws.com/auth/twitter/callback'
             },
             'googleAuth' : {
