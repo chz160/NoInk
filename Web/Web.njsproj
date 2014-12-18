@@ -32,6 +32,10 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="config\auth.js" />
+    <Compile Include="config\database.js" />
+    <Compile Include="config\passport.js" />
+    <Compile Include="models\user.js" />
     <Compile Include="plugins\auth\auth.js" />
     <Compile Include="plugins\auth\config.js" />
     <Compile Include="plugins\auth\handlers.js" />
@@ -57,20 +61,24 @@
     <Content Include="views\emergencyContactView.html" />
     <Content Include="views\emergencyContact.html" />
     <Content Include="views\error.html" />
-    <Content Include="views\index.html" />
+    <Content Include="views\form.html" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="views\index.html" />
     <Content Include="views\layout.html" />
     <Content Include="views\login.html" />
     <Content Include="views\emailAddress.html" />
     <Content Include="views\phoneView.html" />
     <Content Include="views\phone.html" />
-    <Content Include="views\register.html" />
+    <Content Include="views\profile.html" />
+    <Content Include="views\signup.html" />
     <Content Include="views\requestSubmission.html" />
     <Content Include="views\submissions.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
+    <Folder Include="config\" />
+    <Folder Include="models\" />
     <Folder Include="public\" />
     <Folder Include="plugins\" />
     <Folder Include="plugins\auth\" />
