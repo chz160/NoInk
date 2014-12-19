@@ -44,6 +44,12 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
+app.use(function (req, res, next) {
+    res.locals.login = req.isAuthenticated();
+    res.locals.copyRightedYear = new Date().getFullYear();
+    next();
+});
+
 //Load the API routes
 require("./routes/api")(app, passport);
 

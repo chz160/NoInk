@@ -1,11 +1,13 @@
 ﻿{% extends './layout.html' %}
-{% block content %}
+{% block styles %}
 <style>
     .table {
         margin-bottom: 5px; /*override bootstrap*/
     }
 </style>
-<div class="container" ng-controller="DataController">
+{% endblock %}
+{% block content %}
+<div ng-controller="DataController">
     <form name="submissionForm" ng-submit="save(person)" novalidate>
         <fieldset>
             <legend>Personal Information</legend>

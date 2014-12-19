@@ -37,8 +37,10 @@
     <Compile Include="config\passport.js" />
     <Compile Include="models\user.js" />
     <Compile Include="public\js\app.js" />
+    <Compile Include="public\js\contact_me.js" />
     <Compile Include="public\js\dataController.js" />
     <Compile Include="public\js\filters.js" />
+    <Compile Include="public\js\jqBootstrapValidation.js" />
     <Compile Include="public\js\requestSubmissionController.js" />
     <Compile Include="public\js\submissionController.js" />
     <Compile Include="routes\views.js" />
@@ -49,10 +51,17 @@
     <Compile Include="server.js" />
     <Compile Include="services\somethingService.js" />
     <Content Include="bin\www" />
+    <Content Include="public\css\modern-business.css" />
     <Content Include="public\css\site.css" />
+    <Content Include="public\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="public\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="public\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="public\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="views\about.html" />
     <Content Include="views\addressView.html" />
     <Content Include="views\address.html" />
     <Content Include="views\connect-local.html" />
+    <Content Include="views\contact.html" />
     <Content Include="views\emailAddressView.html" />
     <Content Include="views\emergencyContactView.html" />
     <Content Include="views\emergencyContact.html" />
@@ -67,6 +76,7 @@
     <Content Include="views\phoneView.html" />
     <Content Include="views\phone.html" />
     <Content Include="views\profile.html" />
+    <Content Include="views\services.html" />
     <Content Include="views\signup.html" />
     <Content Include="views\requestSubmission.html" />
     <Content Include="views\submissions.html" />
@@ -77,6 +87,7 @@
     <Folder Include="models\" />
     <Folder Include="public\" />
     <Folder Include="public\css\" />
+    <Folder Include="public\fonts\" />
     <Folder Include="public\js\" />
     <Folder Include="public\images\" />
     <Folder Include="services\" />

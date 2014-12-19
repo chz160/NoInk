@@ -34,6 +34,9 @@
     app.get('/connect/google/callback', passport.authorize('google', { successRedirect : '/profile', failureRedirect : '/' }));
     app.get('/unlink/google', function (req, res) { var user = req.user; user.google.token = undefined; user.save(function (err) { res.redirect('/profile'); }); });
     
+    app.get('/about', function (req, res) { res.render('about'); });
+    app.get('/services', function (req, res) { res.render('services'); });
+    app.get('/contact', function (req, res) { res.render('contact'); });
     app.get('/form', function (req, res) { res.render('form'); });
     app.get('/submissions', isLoggedIn, function (req, res) { res.render('submissions'); });
     app.get('/requestSubmission', isLoggedIn, function (req, res) { res.render('requestSubmission'); });
