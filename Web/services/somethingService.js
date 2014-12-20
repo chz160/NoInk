@@ -1,7 +1,7 @@
 ﻿var dataService = require('./dataService.js');
 
 exports.saveForm = function (req, res) {
-    dataService.insertFormSubmission(req.payload);
+    dataService.insertFormSubmission(req.body);
     return true;
 }
 
