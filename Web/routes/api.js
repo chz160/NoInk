@@ -7,6 +7,7 @@ var authenticationService = require(path.join(appDir, '../services/authenticatio
 var somethingService = require(path.join(appDir, '../services/somethingService.js'));
 var mailService = require(path.join(appDir, '../services/mailService.js'));
 
+
 module.exports = function (app, passport) {
     app.get('/api/login', authenticationService.login);
     app.get('/api/logout', authenticationService.logout);
@@ -16,4 +17,5 @@ module.exports = function (app, passport) {
     app.get('/api/getResponse', somethingService.getResponse);
     app.post('/api/sendMail', mailService.sendMail);
     app.get('/api/getStates', somethingService.getStates);
+    app.get('/api/getRequest', somethingService.getRequest);
 };

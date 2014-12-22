@@ -8,7 +8,7 @@
 {% endblock %}
 {% block content %}
 <div ng-controller="DataController">
-    <form name="submissionForm" ng-submit="save(person)" novalidate>
+    <form name="responseForm" ng-submit="save(person)" novalidate>
         <fieldset>
             <legend>Personal Information</legend>
             <div class="row">
@@ -163,7 +163,7 @@
 
         <div class="row" style="margin-bottom: 40px;">
             <div class="col-sm-12" style="margin-top: 15px;">
-                <button type="submit" class="btn btn-primary btn-block" ng-disabled="submissionForm.$invalid">Save</button>
+                <button type="submit" class="btn btn-primary btn-block" ng-disabled="responseForm.$invalid">Save</button>
             </div>
         </div>
     </form>

@@ -1,11 +1,12 @@
 ﻿noInkApp.controller('ResponseController', function ($scope, $http) {
-    
+
+
     $scope.getResponses = function () {
         $http({
             method: "GET",
             url: "/api/getResponses"
         }).success(function (data) {
-            $scope.submissions = data;
+            $scope.responses = data;
             //console.log(data);
             $scope.detailView = false;
         }).error(function (data, status, header, config) {

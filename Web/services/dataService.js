@@ -12,7 +12,18 @@ exports.insertDocument = function (collectionName, doc) {
     });
 };
 
-exports.getCollectionItems = function(collectionName, fn) {
+exports.insertDocument2 = function (collectionName, doc, fn) {
+    db.collection(collectionName).insert(doc, { w: 1 }, function (err, results) {
+        if (err) {
+            console.log(err);
+            throw err;
+        }
+        fn(results);
+    });
+};
+
+
+exports.getCollectionItems = function (collectionName, fn) {
     db.collection(collectionName).find({}).toArray(function(err, results) {
         if (err) {
             console.log(err);
@@ -45,5 +56,11 @@ exports.getResponse = function (id, fn) {
 exports.getResponses = function (fn) {
     this.getCollectionItems(responseCollection, function (docs) {
         fn(docs);
+    });
+};
+
+exports.getRequest = function (id, fn) {
+    this.getCollectionItem('inforequests', id, function (doc) {
+        fn(doc);
     });
 };

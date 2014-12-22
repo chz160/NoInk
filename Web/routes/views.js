@@ -38,6 +38,7 @@
     app.get('/services', function (req, res) { res.render('services'); });
     app.get('/contact', function (req, res) { res.render('contact'); });
     app.get('/form', function (req, res) { res.render('form'); });
+    app.get('/form/:id', function (req, res) { res.render('form'); });
     app.get('/responses', isLoggedIn, function (req, res) { res.render('responses'); });
     app.get('/sendRequest', isLoggedIn, function (req, res) { res.render('sendRequest'); });
     app.get('/emergencyContact', function (req, res) { res.render('emergencyContact'); });

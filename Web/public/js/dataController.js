@@ -1,21 +1,37 @@
-﻿noInkApp.controller('DataController', function ($scope, $http, $filter) {
-    //function newEmergencyContact() {
-    //    this.firstName;
-    //    this.lastName;
-    //    this.homePhone;
-    //    this.cellPhone;
-    //    this.businessPhone;
-    //    this.businessPhoneExt;
-    //    this.email;
-    //}
+﻿noInkApp.controller('DataController', function ($scope, $http, $filter, $location) {
     
-    $scope.person = {
-        emergencyContacts: [],
-        phoneNumbers: [],
-        addresses: [],
-        emailAddresses: []
-    };
-    
+    var id = $location.search()['id'];
+
+    if (id) {
+        $http({
+            method: 'GET',
+            url: '/api/getRequest',
+            params: { id: id }
+        }).success(function(data) {
+            console.log(data);
+            $scope.person = {
+                emergencyContacts: [],
+                phoneNumbers: [],
+                addresses: [],
+                emailAddresses: [
+                    {
+                        emailAddress: data.email,
+                        emailAddressType: 'Home'
+                    }
+                ],
+                firstName: data.firstName,
+                lastName: data.lastName
+            };
+        });
+    } else {
+        $scope.person = {
+            emergencyContacts: [],
+            phoneNumbers: [],
+            addresses: [],
+            emailAddresses: []
+        };
+    }
+
     $scope.sexes = ["Male", "Female"];
     $scope.emergencyContactTemplate = { name: 'emergencyContact', url: 'emergencyContact' };
     $scope.phoneTemplate = { name: 'phone', url: 'phone' };
@@ -44,7 +60,7 @@
             data: newSubmission
         });
         
-        $scope.submissionForm.$setPristine();
+        $scope.responseForm.$setPristine();
         $scope.person = {};
     };
 

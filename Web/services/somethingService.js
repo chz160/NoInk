@@ -1,25 +1,32 @@
 ﻿var dataService = require('./dataService.js');
 
-exports.saveResponse = function (req, res) {
+exports.saveResponse = function(req, res) {
     dataService.saveResponse(req.body);
     return true;
-}
+};
 
 exports.getResponses = function(req, res) {
     dataService.getResponses(function(docs) {
         res.json(docs);
     });
     return true;
-}
+};
 
-exports.getResponse = function (req, res) {
+exports.getResponse = function(req, res) {
     dataService.getResponse(req.query.id, function(doc) {
         res.json(doc);
     });
     return true;
-}
+};
 
-exports.getStates = function (req, res) {
+exports.getRequest = function(req, res) {
+    dataService.getRequest(req.query.id, function(doc) {
+        res.json(doc);
+    });
+    return true;
+};
+
+exports.getStates = function(req, res) {
     var stateList = [
         { name: "Alabama", abbr: "AL" },
         { name: "Alaska", abbr: "AK" },
@@ -75,4 +82,4 @@ exports.getStates = function (req, res) {
     ];
     res.json(stateList);
     return true;
-}
+};
