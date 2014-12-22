@@ -1,16 +1,18 @@
-﻿var nodemailer = require('nodemailer');
+﻿var configMail = require('../config/mail.js');
+
+var nodemailer = require('nodemailer');
 var sgTransport = require('nodemailer-sendgrid-transport');
 var transportOptions = {
     auth: {
-        api_user: 'dlawless',
-        api_key: 'password1'
+        api_user: configMail.apiUser,
+        api_key: configMail.apiKey
     }
 };
 var transporter = nodemailer.createTransport(sgTransport(transportOptions));
 
 exports.sendMail = function(req, res) {
     var requestData = req.body;
-    var from = 'derekhlawless@gmail.com';
+    var from = configMail.from;
     var subject = 'Employment Application Request';
     var url = 'http://ec2-54-68-202-243.us-west-2.compute.amazonaws.com/form';
     var messageTemplate = '<p>' + requestData.firstName + ' ' + requestData.lastName + ', your employer needs some additional information from you. Please visit <a href=\'' + url + '\'>Employment Application Form</a> and provide your information.<p>The NoInk Team</p>';

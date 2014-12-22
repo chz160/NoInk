@@ -34,6 +34,7 @@
   <ItemGroup>
     <Compile Include="config\auth.js" />
     <Compile Include="config\database.js" />
+    <Compile Include="config\mail.js" />
     <Compile Include="config\passport.js" />
     <Compile Include="models\user.js" />
     <Compile Include="public\js\app.js" />
