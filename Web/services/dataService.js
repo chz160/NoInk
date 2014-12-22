@@ -1,4 +1,5 @@
 ﻿var configDB = require('../config/database.js');
+var responseCollection = configDB.responseCollection;
 var mongoskin = require('mongoskin');
 var db = mongoskin.db(configDB.url);
 
@@ -32,17 +33,17 @@ exports.getCollectionItem = function(collectionName, id, fn) {
 };
 
 exports.saveResponse = function (doc) {
-    this.insertDocument("formsubmissions", doc);
+    this.insertDocument(responseCollection, doc);
 };
 
-exports.getSubmissionDetail = function (id, fn) {
-    this.getCollectionItem("formsubmissions", id, function (doc) {
+exports.getResponse = function (id, fn) {
+    this.getCollectionItem(responseCollection, id, function (doc) {
         fn(doc);
     });
 };
 
-exports.getSubmissions = function (fn) {
-    this.getCollectionItems("formsubmissions", function (docs) {
+exports.getResponses = function (fn) {
+    this.getCollectionItems(responseCollection, function (docs) {
         fn(docs);
     });
 };

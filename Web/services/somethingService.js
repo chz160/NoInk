@@ -1,19 +1,19 @@
 ﻿var dataService = require('./dataService.js');
 
-exports.saveForm = function (req, res) {
-    dataService.insertFormSubmission(req.body);
+exports.saveResponse = function (req, res) {
+    dataService.saveResponse(req.body);
     return true;
 }
 
-exports.getSubmissions = function(req, res) {
-    dataService.getSubmissions(function(docs) {
+exports.getResponses = function(req, res) {
+    dataService.getResponses(function(docs) {
         res.json(docs);
     });
     return true;
 }
 
-exports.getSubmissionDetail = function (req, res) {
-    dataService.getSubmissionDetail(req.query.id, function(doc) {
+exports.getResponse = function (req, res) {
+    dataService.getResponse(req.query.id, function(doc) {
         res.json(doc);
     });
     return true;

@@ -40,7 +40,7 @@
     $scope.save = function (newSubmission) {
         $http({
             method: "POST",
-            url: "/api/saveForm",
+            url: "/api/saveResponse",
             data: newSubmission
         });
         

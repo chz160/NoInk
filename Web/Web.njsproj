@@ -42,8 +42,8 @@
     <Compile Include="public\js\dataController.js" />
     <Compile Include="public\js\filters.js" />
     <Compile Include="public\js\jqBootstrapValidation.js" />
-    <Compile Include="public\js\requestSubmissionController.js" />
-    <Compile Include="public\js\submissionController.js" />
+    <Compile Include="public\js\requestController.js" />
+    <Compile Include="public\js\responseController.js" />
     <Compile Include="routes\views.js" />
     <Compile Include="services\authenticationService.js" />
     <Compile Include="services\mailService.js" />
@@ -82,8 +82,8 @@
     <Content Include="views\profile.html" />
     <Content Include="views\services.html" />
     <Content Include="views\signup.html" />
-    <Content Include="views\requestSubmission.html" />
-    <Content Include="views\submissions.html" />
+    <Content Include="views\sendRequest.html" />
+    <Content Include="views\responses.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />

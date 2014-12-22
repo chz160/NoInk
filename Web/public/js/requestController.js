@@ -1,12 +1,12 @@
-﻿noInkApp.controller('RequestSubmissionController', function ($scope, $http) {
-    $scope.requestSubmission = function (req) {
+﻿noInkApp.controller('RequestController', function ($scope, $http) {
+    $scope.sendRequest = function (req) {
         $http({
             method: "POST",
             url: "/api/sendMail",
             data: req
         }).success(function(result) {
             $scope.req = {};
-            $scope.requestSubmissionForm.$setPristine();
+            $scope.sendRequestForm.$setPristine();
             $scope.sendError = false;
             $scope.sendSuccess = true;
         }).error(function(err) {

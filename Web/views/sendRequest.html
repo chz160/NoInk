@@ -1,7 +1,7 @@
 ﻿{% extends './layout.html' %}
 {% block content %}
-<div ng-controller="RequestSubmissionController" class="row">
-    <form name="requestSubmissionForm" role="form" ng-submit="requestSubmission(req)" class="col-sm-4" novalidate>
+<div ng-controller="RequestController" class="row">
+    <form name="sendRequestForm" role="form" ng-submit="sendRequest(req)" class="col-sm-4" novalidate>
         <div class="form-group">
             <label for="firstName" class="control-label">First Name</label>
             <input type="text" ng-model="req.firstName" id="firstName" name="firstName" class="form-control" placeholder="First Name" ng-required="true" />
@@ -15,7 +15,7 @@
             <input type="email" ng-model="req.email" id="email" name="email" class="form-control" placeholder="Email" ng-required="true" />
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary btn-block" ng-disabled="requestSubmissionForm.$invalid" value="Request Submission"/>
+            <input type="submit" class="btn btn-primary btn-block" ng-disabled="sendRequestForm.$invalid" value="Request Submission"/>
         </div>
         <div ng-show="sendError" class="has-error">
             Failed to send email.

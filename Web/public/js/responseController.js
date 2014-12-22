@@ -1,9 +1,9 @@
-﻿noInkApp.controller('SubmissionController', function ($scope, $http) {
+﻿noInkApp.controller('ResponseController', function ($scope, $http) {
     
-    $scope.getSubmissions = function () {
+    $scope.getResponses = function () {
         $http({
             method: "GET",
-            url: "/api/getSubmissions"
+            url: "/api/getResponses"
         }).success(function (data) {
             $scope.submissions = data;
             //console.log(data);
@@ -19,7 +19,7 @@
     $scope.showDetail = function (row) {
         $http({
             method: "GET",
-            url: "/api/getSubmissionDetail",
+            url: "/api/getResponse",
             params: { id: row._id }
         }).success(function (data, status, headers, config) {
             $scope.submission = data;
@@ -37,5 +37,5 @@
     $scope.addressTemplate = { name: 'address', url: 'addressView' };
     $scope.emailAddressTemplate = { name: 'emailAddress', url: 'emailAddressView' };
     
-    $scope.getSubmissions();
+    $scope.getResponses();
 });

@@ -38,8 +38,8 @@
     app.get('/services', function (req, res) { res.render('services'); });
     app.get('/contact', function (req, res) { res.render('contact'); });
     app.get('/form', function (req, res) { res.render('form'); });
-    app.get('/submissions', isLoggedIn, function (req, res) { res.render('submissions'); });
-    app.get('/requestSubmission', isLoggedIn, function (req, res) { res.render('requestSubmission'); });
+    app.get('/responses', isLoggedIn, function (req, res) { res.render('responses'); });
+    app.get('/sendRequest', isLoggedIn, function (req, res) { res.render('sendRequest'); });
     app.get('/emergencyContact', function (req, res) { res.render('emergencyContact'); });
     app.get('/emergencyContactView', isLoggedIn, function (req, res) { res.render('emergencyContactView'); });
     app.get('/phone', function (req, res) { res.render('phone'); });

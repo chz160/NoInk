@@ -11,9 +11,9 @@ module.exports = function (app, passport) {
     app.get('/api/login', authenticationService.login);
     app.get('/api/logout', authenticationService.logout);
     app.post('/api/register', authenticationService.register);
-    app.post("/api/saveForm", somethingService.saveForm);
-    app.get('/api/getSubmissions', somethingService.getSubmissions);
-    app.get('/api/getSubmissionDetail', somethingService.getSubmissionDetail);
+    app.post("/api/saveResponse", somethingService.saveResponse);
+    app.get('/api/getResponses', somethingService.getResponses);
+    app.get('/api/getResponse', somethingService.getResponse);
     app.post('/api/sendMail', mailService.sendMail);
     app.get('/api/getStates', somethingService.getStates);
 };
