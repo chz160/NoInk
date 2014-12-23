@@ -1,5 +1,4 @@
-﻿noInkApp.controller('DataController', function ($scope, $http, $filter, $location) {
-    
+﻿angular.module('NoInkApp').controller('DataController', function ($scope, $http, $filter, $location) {
     var id = $location.search()['id'];
 
     if (id) {

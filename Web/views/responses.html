@@ -20,31 +20,30 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="s in responses">
+            <tr ng-repeat="r in responses">
                 <td>
-                    <button type="button" class="btn btn-default" aria-label="Left Align" ng-click="showDetail(s)">
+                    <button type="button" class="btn btn-default" aria-label="Left Align" ng-click="getResponse(r)">
                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                     </button>
                 </td>
                 <td>
-                    {{s.firstName }} {{s.middleName }} {{s.lastName }} {{s.suffix }}
+                    {{r.firstName }} {{r.middleName }} {{r.lastName }} {{r.suffix }}
                 </td>
                 <td>
-                    <div ng-repeat="phoneNumber in s.phoneNumbers">
+                    <div ng-repeat="phoneNumber in r.phoneNumbers">
                         {{phoneNumber.phoneType}}: {{phoneNumber.phoneNumber | tel}}                        
                     </div>
-                    <!--<div>h: {{s.homePhone | tel}}</div>
-                    <div>c: {{s.cellPhone | tel}}</div>
-                    <div>b: {{s.businessPhone | tel}} {{s.businessPhoneExt}}</div>-->
                 </td>
                 <td>
-                    <div>{{s.personalEmail1 }}</div>
-                    <div>{{s.personalEmail2 }}</div>
-                    <div>{{s.businessEmail }}</div>
+                    <div ng-repeat="email in r.emailAddresses">
+                        {{email.emailAddressType}}: {{email.emailAddress}}
+                    </div>
                 </td>
             </tr>
         </tbody>
     </table>
+    
+    <div class="ng-view"></div>
 
     <div ng-show="detailView == true">
         <fieldset>
