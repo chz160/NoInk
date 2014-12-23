@@ -43,8 +43,8 @@ exports.getCollectionItem = function(collectionName, id, fn) {
     });
 };
 
-exports.saveResponse = function (doc) {
-    this.insertDocument(responseCollection, doc);
+exports.saveResponse = function (doc, fn) {
+    this.insertDocument2(responseCollection, doc, fn);
 };
 
 exports.getResponse = function (id, fn) {

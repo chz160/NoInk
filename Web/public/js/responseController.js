@@ -1,5 +1,4 @@
-﻿noInkApp.controller('ResponseController', function ($scope, $http) {
-
+﻿angular.module('NoInkApp').controller('ResponseController', function ($scope, $http) {
 
     $scope.getResponses = function () {
         $http({
@@ -17,7 +16,7 @@
         });
     };
     
-    $scope.showDetail = function (row) {
+    $scope.getResponse = function (row) {
         $http({
             method: "GET",
             url: "/api/getResponse",
@@ -27,9 +26,6 @@
             $scope.detailView = true;
         }).error(function (data, status, headers, config) {
             console.log(data);
-            console.log(status);
-            console.log(headers);
-            console.log(config);
         });
     }
     

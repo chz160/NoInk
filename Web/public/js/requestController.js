@@ -1,4 +1,4 @@
-﻿noInkApp.controller('RequestController', function ($scope, $http) {
+﻿angular.module('NoInkApp').controller('RequestController', function ($scope, $http) {
     $scope.sendRequest = function (req) {
         $http({
             method: "POST",

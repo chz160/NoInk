@@ -3,39 +3,20 @@
         <div class="row">
             <div class="col-sm-12">
                 {{emergencyContact.firstName}} {{emergencyContact.lastName}}
-                <!--<input id="firstName" name="firstName" type="text" class="form-control" ng-model="emergencyContact.firstName" placeholder="First Name" required />-->
             </div>
-            <!--<div class="col-sm-4">
-                <input id="lastName" name="lastName" type="text" class="form-control" ng-model="emergencyContact.lastName" placeholder="Last Name" required />
-            </div>-->
         </div>
-
         <div class="row">
             <div class="col-sm-12">
                 <div ng-hide="!emergencyContact.homePhone">Home Phone: {{emergencyContact.homePhone}}</div>
                 <div ng-hide="!emergencyContact.cellPhone">Cell Phone: {{emergencyContact.cellPhone}}</div>
                 <div ng-hide="!emergencyContact.businessPhone">Business Phone: {{emergencyContact.businessPhone}} {{emergencyContact.businessPhoneExt}}</div>
             </div>
-            <!--<div class="col-sm-3">
-                <input id="homePhone" type="text" class="form-control" ng-model="emergencyContact.homePhone" placeholder="Home Phone" />
-            </div>
-            <div class="col-sm-3">
-                <input id="cellPhone" type="text" class="form-control" ng-model="emergencyContact.cellPhone" placeholder="Cell Phone" />
-            </div>
-            <div class="col-sm-3">
-                <input id="businessPhone" type="text" class="form-control" ng-model="emergencyContact.businessPhone" placeholder="Business Phone" />
-            </div>
-            <div class="col-sm-3">
-                <input id="businessPhoneExt" type="text" class="form-control" ng-model="emergencyContact.businessPhoneExt" placeholder="Business Phone Ext" />
-            </div>-->
         </div>
-
         <div class="row">
             <div class="col-sm-12">
                 <div ng-hide="!emergencyContact.email">
                     Email: <a href="mailto:{{emergencyContact.email}}">{{emergencyContact.email}}</a>
                 </div>
-                <!--<input id="email" type="text" class="form-control" ng-model="emergencyContact.email" placeholder="Email" />-->
             </div>
         </div>
     </div>

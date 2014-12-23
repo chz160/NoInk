@@ -51,6 +51,7 @@
     app.get('/addressView', isLoggedIn, function (req, res) { res.render('addressView'); });
     app.get('/emailAddress', function (req, res) { res.render('emailAddress'); });
     app.get('/emailAddressView', isLoggedIn, function (req, res) { res.render('emailAddressView'); });
+    app.get('/dashboard', isLoggedIn, function(req, res) { res.render('dashboard'); });
 };
 
 function isLoggedIn(req, res, next) {

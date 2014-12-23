@@ -1,4 +1,4 @@
-﻿noInkApp.filter('tel', function () {
+﻿angular.module('NoInkApp').filter('tel', function () {
     return function (tel) {
         if (!tel) { return ''; }
         
