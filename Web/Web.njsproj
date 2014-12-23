@@ -39,7 +39,7 @@
     <Compile Include="models\user.js" />
     <Compile Include="public\js\app.js" />
     <Compile Include="public\js\contact_me.js" />
-    <Compile Include="public\js\dataController.js" />
+    <Compile Include="public\js\formController.js" />
     <Compile Include="public\js\filters.js" />
     <Compile Include="public\js\jqBootstrapValidation.js" />
     <Compile Include="public\js\requestController.js" />
