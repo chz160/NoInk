@@ -12,10 +12,15 @@
 
 var app = express();
 
+var resolver = {
+    app: app,
+    passport: passport
+};
+
 var configDB = require('./config/database.js');
 mongoose.connect(configDB.url); // connect to our database
 
-require('./config/passport')(passport); // pass passport for configuration
+require('./config/passport')(resolver); // pass passport for configuration
 
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
@@ -51,10 +56,10 @@ app.use(function (req, res, next) {
 });
 
 //Load the API routes
-require("./routes/api")(app, passport);
+require("./routes/api")(resolver);
 
 //Load the View routes
-require("./routes/views")(app, passport);
+require("./routes/views")(resolver);
 
 //------------------ Authentication -----------------------------
 

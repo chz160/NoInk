@@ -1,6 +1,8 @@
-﻿module.exports = function (app, passport) {
+﻿module.exports = function (resolver) {
     //var express = require('express');
     //var router = express.Router();
+    var app = resolver.app;
+    var passport = resolver.passport;
     app.get('/', function (req, res) { res.render('index'); });
     
     app.get('/signup', function (req, res) { res.render('signup', { message: req.flash('signupMessage') }); });

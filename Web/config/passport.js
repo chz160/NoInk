@@ -8,18 +8,18 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var User = require('../models/user');
 var configAuth = require('./auth').get('/provider');
 
-module.exports = function (passport) {
-    passport.serializeUser(function (user, done) {
+module.exports = function (resolver) {
+    resolver.passport.serializeUser(function (user, done) {
         done(null, user.id);
     });
     
-    passport.deserializeUser(function (id, done) {
+    resolver.passport.deserializeUser(function (id, done) {
         User.findById(id, function (err, user) {
             done(err, user);
         });
     });
     
-    passport.use('local-signup', new LocalStrategy({
+    resolver.passport.use('local-signup', new LocalStrategy({
         usernameField : 'email',
         passwordField : 'password',
         passReqToCallback : true
@@ -58,7 +58,7 @@ module.exports = function (passport) {
         });
     }));
     
-    passport.use('local-login', new LocalStrategy({ usernameField : 'email', passwordField : 'password', passReqToCallback : true },
+    resolver.passport.use('local-login', new LocalStrategy({ usernameField : 'email', passwordField : 'password', passReqToCallback : true },
         function (req, email, password, done) {
         User.findOne({ 'local.email' : email }, function (err, user) {
             if (err)
@@ -77,7 +77,7 @@ module.exports = function (passport) {
     // =========================================================================
     // FACEBOOK ================================================================
     // =========================================================================
-    passport.use(new FacebookStrategy({ clientID: configAuth.facebookAuth.clientID, clientSecret: configAuth.facebookAuth.clientSecret, callbackURL: configAuth.facebookAuth.callbackURL, passReqToCallback : true },
+    resolver.passport.use(new FacebookStrategy({ clientID: configAuth.facebookAuth.clientID, clientSecret: configAuth.facebookAuth.clientSecret, callbackURL: configAuth.facebookAuth.callbackURL, passReqToCallback : true },
     function (req, token, refreshToken, profile, done) {
         process.nextTick(function () {
             if (!req.user) {
@@ -129,7 +129,7 @@ module.exports = function (passport) {
     // =========================================================================
     // TWITTER =================================================================
     // =========================================================================
-    passport.use(new TwitterStrategy({ consumerKey: configAuth.twitterAuth.consumerKey, consumerSecret: configAuth.twitterAuth.consumerSecret, callbackURL: configAuth.twitterAuth.callbackURL, passReqToCallback : true },
+    resolver.passport.use(new TwitterStrategy({ consumerKey: configAuth.twitterAuth.consumerKey, consumerSecret: configAuth.twitterAuth.consumerSecret, callbackURL: configAuth.twitterAuth.callbackURL, passReqToCallback : true },
     function (req, token, tokenSecret, profile, done) {
         process.nextTick(function () {
             if (!req.user) {
@@ -181,7 +181,7 @@ module.exports = function (passport) {
     // =========================================================================
     // GOOGLE ==================================================================
     // =========================================================================
-    passport.use(new GoogleStrategy({ clientID: configAuth.googleAuth.clientID, clientSecret: configAuth.googleAuth.clientSecret, callbackURL: configAuth.googleAuth.callbackURL, passReqToCallback : true },
+    resolver.passport.use(new GoogleStrategy({ clientID: configAuth.googleAuth.clientID, clientSecret: configAuth.googleAuth.clientSecret, callbackURL: configAuth.googleAuth.callbackURL, passReqToCallback : true },
     function (req, token, refreshToken, profile, done) {
         process.nextTick(function () {
             if (!req.user) {
