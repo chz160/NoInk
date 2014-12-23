@@ -1,7 +1,9 @@
 ﻿var dataService = require('./dataService.js');
 
 exports.saveResponse = function(req, res) {
-    dataService.saveResponse(req.body);
+    dataService.saveResponse(req.body, function(data) {
+        res.json(data);
+    });
     return true;
 };
 

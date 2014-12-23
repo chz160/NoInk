@@ -66,6 +66,7 @@
     <Content Include="views\address.html" />
     <Content Include="views\connect-local.html" />
     <Content Include="views\contact.html" />
+    <Content Include="views\dashboard.html" />
     <Content Include="views\emailAddressView.html" />
     <Content Include="views\emergencyContactView.html" />
     <Content Include="views\emergencyContact.html" />

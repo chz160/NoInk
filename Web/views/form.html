@@ -8,7 +8,7 @@
 {% endblock %}
 {% block content %}
 <div ng-controller="DataController">
-    <form name="responseForm" ng-submit="save(person)" novalidate>
+    <form name="responseForm" ng-submit="save(person)" novalidate ng-show="submitted == false">
         <fieldset>
             <legend>Personal Information</legend>
             <div class="row">
@@ -25,7 +25,6 @@
                     <input id="suffix" name="suffix" type="text" class="form-control" ng-model="person.suffix" placeholder="Suffix" />
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-sm-3">
                     <input id="dob" name="dob" type="text" class="form-control" ng-model="person.dob" placeholder="Date of Birth" />
@@ -39,13 +38,11 @@
                     </select>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-sm-3">
                     <input id="initials" name="initials" type="text" class="form-control" ng-model="person.initials" placeholder="Initials" />
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-sm-4">
                     <input id="driversLicenseNumber" name="driversLicenseNumber" type="text" class="form-control" ng-model="person.driversLicenseNumber" placeholder="Drivers License Number" />
@@ -67,27 +64,6 @@
             <table class="table">
                 <tr ng-repeat="address in person.addresses" ng-include="addressTemplate.url" autoscroll></tr>
             </table>
-
-            <!--<div class="row">
-                    <div class="col-sm-4">
-                        <input id="address1" name="address1" type="text" class="form-control" ng-model="person.address1" placeholder="Address 1" />
-                        <input id="address2" name="address2" type="text" class="form-control" ng-model="person.address2" placeholder="Address 2" />
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-3">
-                        <input id="city" name="city" type="text" class="form-control" ng-model="person.city" placeholder="City" />
-                    </div>
-                    <div class="col-sm-3">
-                        <select id="state" name="state" ng-model="person.state" ng-options="state.name for state in stateList" class="form-control">
-                            <option value="">State...</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-3">
-                        <input id="zip" name="zip" type="text" class="form-control" ng-model="person.zip" placeholder="Zip" />
-                    </div>
-                </div>-->
         </fieldset>
 
         <fieldset>
@@ -99,22 +75,6 @@
             <table class="table">
                 <tr ng-repeat="phone in person.phoneNumbers" ng-include="phoneTemplate.url" autoscroll></tr>
             </table>
-            
-            
-            <!--<div class="row">
-                    <div class="col-sm-3">
-                        <input id="homePhone" name="homePhone" type="text" class="form-control" ng-model="person.homePhone" placeholder="Home Phone" />
-                    </div>
-                    <div class="col-sm-3">
-                        <input id="cellPhone" name="cellPhone" type="text" class="form-control" ng-model="person.cellPhone" placeholder="Cell Phone" />
-                    </div>
-                    <div class="col-sm-3">
-                        <input id="businessPhone" name="businessPhone" type="text" class="form-control" ng-model="person.businessPhone" placeholder="Business Phone" />
-                    </div>
-                    <div class="col-sm-3">
-                        <input id="businessPhoneExt" name="businessPhoneExt" type="text" class="form-control" ng-model="person.businessPhoneExt" placeholder="Business Ext" />
-                    </div>
-                </div>-->
         </fieldset>
 
         <fieldset>
@@ -126,19 +86,6 @@
             <table class="table">
                 <tr ng-repeat="emailAddress in person.emailAddresses" ng-include="emailAddressTemplate.url" autoscroll></tr>
             </table>
-
-
-            <!--<div class="row">
-                    <div class="col-sm-4">
-                        <input id="personalEmail1" name="personalEmail1" type="email" class="form-control" ng-model="person.personalEmail1" placeholder="Personal Email 1" />
-                    </div>
-                    <div class="col-sm-4">
-                        <input id="personalEmail2" name="personalEmail2" type="email" class="form-control" ng-model="person.personalEmail2" placeholder="Personal Email 2" />
-                    </div>
-                    <div class="col-sm-4">
-                        <input id="businessEmail" name="businessEmail" type="email" class="form-control" ng-model="person.businessEmail" placeholder="Business Email" />
-                    </div>
-                </div>-->
         </fieldset>
 
         <fieldset>
@@ -167,5 +114,8 @@
             </div>
         </div>
     </form>
+    <div ng-show="submitted == true" class="jumbotron">
+        <h3>Thank you for submitting your information.</h3>
+    </div>
 </div>
 {% endblock %}

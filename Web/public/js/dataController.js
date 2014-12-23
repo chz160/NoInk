@@ -36,7 +36,7 @@
     $scope.phoneTemplate = { name: 'phone', url: 'phone' };
     $scope.addressTemplate = { name: 'address', url: 'address' };
     $scope.emailAddressTemplate = { name: 'emailAddress', url: 'emailAddress' };
-    
+    $scope.submitted = false;
     $scope.getStates = function () {
         $http({
             method: "GET",
@@ -46,9 +46,6 @@
             //console.log(data);
         }).error(function (data, status, header, config) {
             console.log(data);
-            console.log(status);
-            console.log(header);
-            console.log(config);
         });
     };
     
@@ -57,6 +54,10 @@
             method: "POST",
             url: "/api/saveResponse",
             data: newSubmission
+        }).success(function(data) {
+            $scope.submitted = true;
+        }).error(function(err) {
+            console.log('err: ' + err);
         });
         
         $scope.responseForm.$setPristine();
