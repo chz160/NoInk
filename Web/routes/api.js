@@ -5,9 +5,9 @@ var authenticationService = require(path.join(appDir, '../services/authenticatio
 var somethingService = require(path.join(appDir, '../services/somethingService.js'));
 var mailService = require(path.join(appDir, '../services/mailService.js'));
 
-
-module.exports = function (resolver) {
-    var app = resolver.app;
+module.exports = function () {
+    var serviceLocator = require("../services/serviceLocator.js");
+    var app = serviceLocator.resolve("app");
     app.get('/api/login', authenticationService.login);
     app.get('/api/logout', authenticationService.logout);
     app.post('/api/register', authenticationService.register);

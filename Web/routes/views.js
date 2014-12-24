@@ -1,8 +1,8 @@
-﻿module.exports = function (resolver) {
-    //var express = require('express');
-    //var router = express.Router();
-    var app = resolver.app;
-    var passport = resolver.passport;
+﻿module.exports = function () {
+    var serviceLocator = require("../services/serviceLocator.js");
+    var app = serviceLocator.resolve("app");
+    var passport = serviceLocator.resolve("passport");
+
     app.get('/', function (req, res) { res.render('index'); });
     
     app.get('/signup', function (req, res) { res.render('signup', { message: req.flash('signupMessage') }); });
@@ -51,7 +51,7 @@
     app.get('/addressView', isLoggedIn, function (req, res) { res.render('addressView'); });
     app.get('/emailAddress', function (req, res) { res.render('emailAddress'); });
     app.get('/emailAddressView', isLoggedIn, function (req, res) { res.render('emailAddressView'); });
-    app.get('/dashboard', isLoggedIn, function(req, res) { res.render('dashboard'); });
+    app.get('/dashboard', isLoggedIn, function (req, res) { res.render('dashboard'); });
 };
 
 function isLoggedIn(req, res, next) {
