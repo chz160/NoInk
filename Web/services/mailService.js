@@ -1,5 +1,5 @@
-﻿var configMail = require('../config/mail.js');
-
+﻿var path = require('path');
+var configMail = require(path.join(__dirname, '../config/mail.js'));
 
 var nodemailer = require('nodemailer');
 var sgTransport = require('nodemailer-sendgrid-transport');

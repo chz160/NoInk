@@ -9,17 +9,17 @@
     flash = require('connect-flash'),
     session = require('express-session'),
     mongoose = require('mongoose'),
-    serviceLocator = require("./services/serviceLocator.js");
+    serviceLocator = require(path.join(__dirname, "services/serviceLocator.js"));
 
 var app = express();
 
 serviceLocator.register("passport", passport);
 serviceLocator.register("app", app);
 
-var configDB = require('./config/database.js');
+var configDB = require(path.join(__dirname, 'config/database.js'));
 mongoose.connect(configDB.url); // connect to our database
 
-require('./config/passport')(); // pass passport for configuration
+require(path.join(__dirname, 'config/passport'))(); // pass passport for configuration
 
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
@@ -55,10 +55,10 @@ app.use(function (req, res, next) {
 });
 
 //Load the API routes
-require("./routes/api")();
+require(path.join(__dirname, "routes/api"))();
 
 //Load the View routes
-require("./routes/views")();
+require(path.join(__dirname, "routes/views"))();
 
 //------------------ Authentication -----------------------------
 

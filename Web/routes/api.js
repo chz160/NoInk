@@ -1,12 +1,10 @@
 ﻿var path = require('path');
-
-var appDir = path.dirname(require.main.filename);
-var authenticationService = require(path.join(appDir, '../services/authenticationService.js'));
-var somethingService = require(path.join(appDir, '../services/somethingService.js'));
-var mailService = require(path.join(appDir, '../services/mailService.js'));
+var authenticationService = require(path.join(__dirname, '../services/authenticationService.js'));
+var somethingService = require(path.join(__dirname, '../services/somethingService.js'));
+var mailService = require(path.join(__dirname, '../services/mailService.js'));
 
 module.exports = function () {
-    var serviceLocator = require("../services/serviceLocator.js");
+    var serviceLocator = require(path.join(__dirname, "../services/serviceLocator.js"));
     var app = serviceLocator.resolve("app");
     app.get('/api/login', authenticationService.login);
     app.get('/api/logout', authenticationService.logout);

@@ -1,5 +1,7 @@
-﻿module.exports = function () {
-    var serviceLocator = require("../services/serviceLocator.js");
+﻿var path = require('path');
+
+module.exports = function () {
+    var serviceLocator = require(path.join(__dirname, "../services/serviceLocator.js"));
     var app = serviceLocator.resolve("app");
     var passport = serviceLocator.resolve("passport");
 

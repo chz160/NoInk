@@ -1,14 +1,14 @@
 ﻿//source: http://scotch.io/tutorials/javascript/easy-node-authentication-setup-and-local
-
+var path = require('path');
 var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var TwitterStrategy = require('passport-twitter').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
-var User = require('../models/user');
-var configAuth = require('./auth').get('/provider');
+var User = require(path.join(__dirname, '../models/user'));
+var configAuth = require(path.join(__dirname, 'auth')).get('/provider');
 
-var serviceLocator = require("../services/serviceLocator.js");
+var serviceLocator = require(path.join(__dirname, "../services/serviceLocator.js"));
 
 module.exports = function () {
     var passport = serviceLocator.resolve("passport");

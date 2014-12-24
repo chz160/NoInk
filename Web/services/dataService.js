@@ -1,4 +1,5 @@
-﻿var configDB = require('../config/database.js');
+﻿var path = require('path');
+var configDB = require(path.join(__dirname, '../config/database.js'));
 var responseCollection = configDB.responseCollection;
 var mongoskin = require('mongoskin');
 var db = mongoskin.db(configDB.url);

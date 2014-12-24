@@ -1,4 +1,5 @@
-﻿var dataService = require('./dataService.js');
+﻿var path = require('path');
+var dataService = require(path.join(__dirname, 'dataService.js'));
 
 exports.saveResponse = function(req, res) {
     dataService.saveResponse(req.body, function(data) {

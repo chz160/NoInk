@@ -21,10 +21,6 @@
         }
     };
     
-    this.getSocketList = function () {
-        return services;
-    };
-    
     if (serviceLocator.caller != serviceLocator.getInstance) {
         throw new Error("This object cannot be instanciated");
     }
