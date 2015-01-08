@@ -24,17 +24,17 @@ var store = new Confidence.Store({
             'facebookAuth' : {
                 'clientID'      : '330752823775005',
                 'clientSecret'  : 'd357ece0c4a1c16f9e72110172c79277',
-                'callbackURL'   : 'http://ec2-54-68-202-243.us-west-2.compute.amazonaws.com/auth/facebook/callback'
+                'callbackURL'   : 'http://www.smarterthanink.com/auth/facebook/callback'
             },
             'twitterAuth' : {
                 'consumerKey'       : 'NRTcpmSFTOWgNOpIXNT8G0K5c',
                 'consumerSecret'    : 'nSGbd6vZD2TMqQYbanlTGwqcUBn6QuKC9CbWnDNqNlnzNcmyZl',
-                'callbackURL'       : 'http://ec2-54-68-202-243.us-west-2.compute.amazonaws.com/auth/twitter/callback'
+                'callbackURL'       : 'http://www.smarterthanink.com/auth/twitter/callback'
             },
             'googleAuth' : {
                 'clientID'      : '716573943630-ta92nqaesirpgtloour4qklb2t848qfr.apps.googleusercontent.com',
                 'clientSecret'  : 'smSH5Yi5t1j28Fj5TdH3fyvl',
-                'callbackURL'   : 'http://ec2-54-68-202-243.us-west-2.compute.amazonaws.com/auth/google/callback'
+                'callbackURL'   : 'http://www.smarterthanink.com/auth/google/callback'
             }
         }
     }

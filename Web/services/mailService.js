@@ -27,7 +27,7 @@ exports.sendMail = function(req, res) {
         var subject = 'Employment Application Request';
         var url = 'http://ec2-54-68-202-243.us-west-2.compute.amazonaws.com/form?id=' + id;
         //var url = 'http://localhost/form?id=' + id;
-        var messageTemplate = '<p>' + requestData.firstName + ' ' + requestData.lastName + ', your employer needs some additional information from you. Please visit <a href=\'' + url + '\'>Employment Application Form</a> and provide your information.<p>The NoInk Team</p>';
+        var messageTemplate = '<p>' + requestData.firstName + ' ' + requestData.lastName + ', your employer needs some additional information from you. Please visit <a href=\'' + url + '\'>Employment Application Form</a> and provide your information.<p>The SmInk Team</p>';
         console.log(messageTemplate);
         
         var mailOptions = {

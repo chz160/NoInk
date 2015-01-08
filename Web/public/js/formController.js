@@ -1,4 +1,4 @@
-﻿angular.module('NoInkApp').controller('FormController', function ($scope, $http, $filter, $location) {
+﻿angular.module('SmInkApp').controller('FormController', function ($scope, $http, $filter, $location) {
     var id = $location.search()['id'];
 
     if (id) {

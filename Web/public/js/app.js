@@ -1,4 +1,4 @@
-﻿var noInkApp = angular.module('NoInkApp', ['ngRoute'], function($locationProvider) {
+﻿var sminkApp = angular.module('SmInkApp', ['ngRoute'], function($locationProvider) {
     $locationProvider.html5Mode({
         enabled: true,
         requireBase: false

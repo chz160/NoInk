@@ -1,4 +1,4 @@
-﻿angular.module('NoInkApp').controller('ResponseController', function ($scope, $http) {
+﻿angular.module('SmInkApp').controller('ResponseController', function ($scope, $http) {
 
     $scope.getResponses = function () {
         $http({
